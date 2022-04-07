@@ -171,7 +171,7 @@ https://templatemo.com/tm-559-zay-shop
             <div class="card mb-3">
               <img
                 class="card-img img-fluid"
-                src="assets/img/shop_03.png"
+                src="assets/img/shop_05.jpg"
                 alt="Card image cap"
                 id="product-detail"
               />
@@ -204,7 +204,7 @@ https://templatemo.com/tm-559-zay-shop
                         <a href="#">
                           <img
                             class="card-img img-fluid"
-                            src="assets/img/shop_03.png"
+                            src="assets/img/shop_05.jpg"
                             alt="Product Image 1"
                           />
                         </a>
@@ -213,7 +213,7 @@ https://templatemo.com/tm-559-zay-shop
                         <a href="#">
                           <img
                             class="card-img img-fluid"
-                            src="assets/img/shop_03.png"
+                            src="assets/img/shop_05.jpg"
                             alt="Product Image 2"
                           />
                         </a>
@@ -222,7 +222,7 @@ https://templatemo.com/tm-559-zay-shop
                         <a href="#">
                           <img
                             class="card-img img-fluid"
-                            src="assets/img/shop_03.png"
+                            src="assets/img/shop_05.jpg"
                             alt="Product Image 3"
                           />
                         </a>
@@ -296,8 +296,8 @@ https://templatemo.com/tm-559-zay-shop
           <div class="col-lg-7 mt-5">
             <div class="card">
               <div class="card-body">
-                <h1 class="h2">B-52 Stratofortress</h1>
-                <p class="h3 py-2">5,000,000 DT</p>
+                <h1 class="h2">MiG-21 fighter </h1>
+                <p class="h3 py-2">$20,000,000 DT</p>
                 <p class="py-2">
                   <i class="fa fa-star text-warning"></i>
                   <i class="fa fa-star text-warning"></i>
@@ -313,7 +313,7 @@ https://templatemo.com/tm-559-zay-shop
                     <h6>Brand:</h6>
                   </li>
                   <li class="list-inline-item">
-                    <p class="text-muted"><strong>Boeing</strong></p>
+                    <p class="text-muted"><strong>AIRBUS</strong></p>
                   </li>
                 </ul>
 
@@ -329,7 +329,7 @@ https://templatemo.com/tm-559-zay-shop
                     <h6>Avaliable Color :</h6>
                   </li>
                   <li class="list-inline-item">
-                    <p class="text-muted"><strong>White </strong></p>
+                    <p class="text-muted"><strong>yellow </strong></p>
                   </li>
                 </ul>
 
