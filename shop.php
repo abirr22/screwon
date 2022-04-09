@@ -32,6 +32,13 @@ https://templatemo.com/tm-559-zay-shop
   </head>
 
   <body>
+
+
+  <?php include 'avionC.php';
+	$avionC=new AvionC();
+	$listeavion=$avionC->afficherAvions(); ?>
+
+  
     <!-- Start Top Nav -->
     <nav class="navbar navbar-expand-lg bg-dark navbar-light d-none d-lg-block" id="templatemo_nav_top">
         <div class="container text-light">
@@ -224,12 +231,15 @@ https://templatemo.com/tm-559-zay-shop
                     </div> -->
           </div>
           <div class="row">
+
+
+           <?php foreach($listeavion as $avion){ ?>
             <div class="col-md-4">
               <div class="card mb-4 product-wap rounded-0">
                 <div class="card rounded-0">
                   <img
                     class="card-img rounded-0 img-fluid"
-                    src="assets/img/shop_01.jpg"
+                    src="assets/img/<?php echo $avion['img1']; ?>"
                   />
                   <div
                     class="card-img-overlay rounded-0 product-overlay d-flex align-items-center justify-content-center"
@@ -238,21 +248,21 @@ https://templatemo.com/tm-559-zay-shop
                       <li>
                         <a
                           class="btn btn-success text-white"
-                          href="hawker-hurricane-page.html"
+                          href="single.php?page=<?php echo $avion['id']; ?>"
                           ><i class="far fa-heart"></i
                         ></a>
                       </li>
                       <li>
                         <a
                           class="btn btn-success text-white mt-2"
-                          href="hawker-hurricane-page.html"
+                          href="single.php?page=<?php echo $avion['id']; ?>"
                           ><i class="far fa-eye"></i
                         ></a>
                       </li>
                       <li>
                         <a
                           class="btn btn-success text-white mt-2"
-                          href="hawker-hurricane-page.html"
+                          href="single.php?page=<?php echo $avion['id']; ?>"
                           ><i class="fas fa-cart-plus"></i
                         ></a>
                       </li>
@@ -261,7 +271,7 @@ https://templatemo.com/tm-559-zay-shop
                 </div>
                 <div class="card-body">
                   <a href="shop-single.html" class="h3 text-decoration-none"
-                    >Hawker Hurricane</a
+                    ><?php echo $avion['nom']; ?></a
                   >
                   <ul
                     class="w-100 list-unstyled d-flex justify-content-between mb-0"
@@ -293,376 +303,15 @@ https://templatemo.com/tm-559-zay-shop
                       <i class="text-muted fa fa-star"></i>
                     </li>
                   </ul>
-                  <p class="text-center mb-0">1,500,000 DT</p>
+                  <p class="text-center mb-0"><?php echo $avion['prix']; ?>DT</p>
                 </div>
               </div>
             </div>
-            <div class="col-md-4">
-              <div class="card mb-4 product-wap rounded-0">
-                <div class="card rounded-0">
-                  <img
-                    class="card-img rounded-0 img-fluid"
-                    src="assets/img/shop_02.png"
-                  />
-                  <div
-                    class="card-img-overlay rounded-0 product-overlay d-flex align-items-center justify-content-center"
-                  >
-                    <ul class="list-unstyled">
-                      <li>
-                        <a
-                          class="btn btn-success text-white"
-                          href="u-2-spy-plane.html"
-                          ><i class="far fa-heart"></i
-                        ></a>
-                      </li>
-                      <li>
-                        <a
-                          class="btn btn-success text-white mt-2"
-                          href="u-2-spy-plane.html"
-                          ><i class="far fa-eye"></i
-                        ></a>
-                      </li>
-                      <li>
-                        <a
-                          class="btn btn-success text-white mt-2"
-                          href="u-2-spy-plane.html"
-                          ><i class="fas fa-cart-plus"></i
-                        ></a>
-                      </li>
-                    </ul>
-                  </div>
-                </div>
-                <div class="card-body">
-                  <a href="shop-single.html" class="h3 text-decoration-none"
-                    >U-2 spy plane</a
-                  >
-                  <ul
-                    class="w-100 list-unstyled d-flex justify-content-between mb-0"
-                  >
-                    <li class="pt-2">
-                      <span
-                        class="product-color-dot color-dot-red float-left rounded-circle ml-1"
-                      ></span>
-                      <span
-                        class="product-color-dot color-dot-blue float-left rounded-circle ml-1"
-                      ></span>
-                      <span
-                        class="product-color-dot color-dot-black float-left rounded-circle ml-1"
-                      ></span>
-                      <span
-                        class="product-color-dot color-dot-light float-left rounded-circle ml-1"
-                      ></span>
-                      <span
-                        class="product-color-dot color-dot-green float-left rounded-circle ml-1"
-                      ></span>
-                    </li>
-                  </ul>
-                  <ul class="list-unstyled d-flex justify-content-center mb-1">
-                    <li>
-                      <i class="text-warning fa fa-star"></i>
-                      <i class="text-warning fa fa-star"></i>
-                      <i class="text-warning fa fa-star"></i>
-                      <i class="text-muted fa fa-star"></i>
-                      <i class="text-muted fa fa-star"></i>
-                    </li>
-                  </ul>
-                  <p class="text-center mb-0">15,000,000 DT</p>
-                </div>
-              </div>
-            </div>
-            <div class="col-md-4">
-              <div class="card mb-4 product-wap rounded-0">
-                <div class="card rounded-0">
-                  <img
-                    class="card-img rounded-0 img-fluid"
-                    src="assets/img/shop_03.png"
-                  />
-                  <div
-                    class="card-img-overlay rounded-0 product-overlay d-flex align-items-center justify-content-center"
-                  >
-                    <ul class="list-unstyled">
-                      <li>
-                        <a
-                          class="btn btn-success text-white"
-                          href="b-52-stratofortress.html"
-                          ><i class="far fa-heart"></i
-                        ></a>
-                      </li>
-                      <li>
-                        <a
-                          class="btn btn-success text-white mt-2"
-                          href="b-52-stratofortress.html"
-                          ><i class="far fa-eye"></i
-                        ></a>
-                      </li>
-                      <li>
-                        <a
-                          class="btn btn-success text-white mt-2"
-                          href="b-52-stratofortress.html"
-                          ><i class="fas fa-cart-plus"></i
-                        ></a>
-                      </li>
-                    </ul>
-                  </div>
-                </div>
-                <div class="card-body">
-                  <a href="shop-single.html" class="h3 text-decoration-none"
-                    >B-52 Stratofortress</a
-                  >
-                  <ul
-                    class="w-100 list-unstyled d-flex justify-content-between mb-0"
-                  >
-                    <li class="pt-2">
-                      <span
-                        class="product-color-dot color-dot-red float-left rounded-circle ml-1"
-                      ></span>
-                      <span
-                        class="product-color-dot color-dot-blue float-left rounded-circle ml-1"
-                      ></span>
-                      <span
-                        class="product-color-dot color-dot-black float-left rounded-circle ml-1"
-                      ></span>
-                      <span
-                        class="product-color-dot color-dot-light float-left rounded-circle ml-1"
-                      ></span>
-                      <span
-                        class="product-color-dot color-dot-green float-left rounded-circle ml-1"
-                      ></span>
-                    </li>
-                  </ul>
-                  <ul class="list-unstyled d-flex justify-content-center mb-1">
-                    <li>
-                      <i class="text-warning fa fa-star"></i>
-                      <i class="text-warning fa fa-star"></i>
-                      <i class="text-warning fa fa-star"></i>
-                      <i class="text-muted fa fa-star"></i>
-                      <i class="text-muted fa fa-star"></i>
-                    </li>
-                  </ul>
-                  <p class="text-center mb-0">5,000,000 DT</p>
-                </div>
-              </div>
-            </div>
-            <div class="col-md-4">
-              <div class="card mb-4 product-wap rounded-0">
-                <div class="card rounded-0">
-                  <img
-                    class="card-img rounded-0 img-fluid"
-                    src="assets/img/shop_04.jpg"
-                  />
-                  <div
-                    class="card-img-overlay rounded-0 product-overlay d-flex align-items-center justify-content-center"
-                  >
-                    <ul class="list-unstyled">
-                      <li>
-                        <a
-                          class="btn btn-success text-white"
-                          href="f-16-fighting-falcon.html"
-                          ><i class="far fa-heart"></i
-                        ></a>
-                      </li>
-                      <li>
-                        <a
-                          class="btn btn-success text-white mt-2"
-                          href="f-16-fighting-falcon.html"
-                          ><i class="far fa-eye"></i
-                        ></a>
-                      </li>
-                      <li>
-                        <a
-                          class="btn btn-success text-white mt-2"
-                          href="f-16-fighting-falcon.html"
-                          ><i class="fas fa-cart-plus"></i
-                        ></a>
-                      </li>
-                    </ul>
-                  </div>
-                </div>
-                <div class="card-body">
-                  <a href="f-16-fighting-falcon.html" class="h3 text-decoration-none"
-                    >F-16 Fighting Falcon</a
-                  >
-                  <ul
-                    class="w-100 list-unstyled d-flex justify-content-between mb-0"
-                  >
-                    <li class="pt-2">
-                      <span
-                        class="product-color-dot color-dot-red float-left rounded-circle ml-1"
-                      ></span>
-                      <span
-                        class="product-color-dot color-dot-blue float-left rounded-circle ml-1"
-                      ></span>
-                      <span
-                        class="product-color-dot color-dot-black float-left rounded-circle ml-1"
-                      ></span>
-                      <span
-                        class="product-color-dot color-dot-light float-left rounded-circle ml-1"
-                      ></span>
-                      <span
-                        class="product-color-dot color-dot-green float-left rounded-circle ml-1"
-                      ></span>
-                    </li>
-                  </ul>
-                  <ul class="list-unstyled d-flex justify-content-center mb-1">
-                    <li>
-                      <i class="text-warning fa fa-star"></i>
-                      <i class="text-warning fa fa-star"></i>
-                      <i class="text-warning fa fa-star"></i>
-                      <i class="text-muted fa fa-star"></i>
-                      <i class="text-muted fa fa-star"></i>
-                    </li>
-                  </ul>
-                  <p class="text-center mb-0">50,000,000 DT</p>
-                </div>
-              </div>
-            </div>
-            <div class="col-md-4">
-              <div class="card mb-4 product-wap rounded-0">
-                <div class="card rounded-0">
-                  <img
-                    class="card-img rounded-0 img-fluid"
-                    src="assets/img/shop_05.png"
-                  />
-                  <div
-                    class="card-img-overlay rounded-0 product-overlay d-flex align-items-center justify-content-center"
-                  >
-                    <ul class="list-unstyled">
-                      <li>
-                        <a
-                          class="btn btn-success text-white"
-                          href="shop-single.html"
-                          ><i class="far fa-heart"></i
-                        ></a>
-                      </li>
-                      <li>
-                        <a
-                          class="btn btn-success text-white mt-2"
-                          href="shop-single.html"
-                          ><i class="far fa-eye"></i
-                        ></a>
-                      </li>
-                      <li>
-                        <a
-                          class="btn btn-success text-white mt-2"
-                          href="shop-single.html"
-                          ><i class="fas fa-cart-plus"></i
-                        ></a>
-                      </li>
-                    </ul>
-                  </div>
-                </div>
-                <div class="card-body">
-                  <a href="shop-single.html" class="h3 text-decoration-none"
-                    >MiG-21 fighter</a
-                  >
-                  <ul
-                    class="w-100 list-unstyled d-flex justify-content-between mb-0"
-                  >
-                    <li class="pt-2">
-                      <span
-                        class="product-color-dot color-dot-red float-left rounded-circle ml-1"
-                      ></span>
-                      <span
-                        class="product-color-dot color-dot-blue float-left rounded-circle ml-1"
-                      ></span>
-                      <span
-                        class="product-color-dot color-dot-black float-left rounded-circle ml-1"
-                      ></span>
-                      <span
-                        class="product-color-dot color-dot-light float-left rounded-circle ml-1"
-                      ></span>
-                      <span
-                        class="product-color-dot color-dot-green float-left rounded-circle ml-1"
-                      ></span>
-                    </li>
-                  </ul>
-                  <ul class="list-unstyled d-flex justify-content-center mb-1">
-                    <li>
-                      <i class="text-warning fa fa-star"></i>
-                      <i class="text-warning fa fa-star"></i>
-                      <i class="text-warning fa fa-star"></i>
-                      <i class="text-muted fa fa-star"></i>
-                      <i class="text-muted fa fa-star"></i>
-                    </li>
-                  </ul>
-                  <p class="text-center mb-0">$20,000,000 DT</p>
-                </div>
-              </div>
-            </div>
-            <div class="col-md-4">
-              <div class="card mb-4 product-wap rounded-0">
-                <div class="card rounded-0">
-                  <img
-                    class="card-img rounded-0 img-fluid"
-                    src="assets/img/shop_06.jpg"
-                  />
-                  <div
-                    class="card-img-overlay rounded-0 product-overlay d-flex align-items-center justify-content-center"
-                  >
-                    <ul class="list-unstyled">
-                      <li>
-                        <a
-                          class="btn btn-success text-white"
-                          href="shop-single.html"
-                          ><i class="far fa-heart"></i
-                        ></a>
-                      </li>
-                      <li>
-                        <a
-                          class="btn btn-success text-white mt-2"
-                          href="shop-single.html"
-                          ><i class="far fa-eye"></i
-                        ></a>
-                      </li>
-                      <li>
-                        <a
-                          class="btn btn-success text-white mt-2"
-                          href="shop-single.html"
-                          ><i class="fas fa-cart-plus"></i
-                        ></a>
-                      </li>
-                    </ul>
-                  </div>
-                </div>
-                <div class="card-body">
-                  <a href="shop-single.html" class="h3 text-decoration-none"
-                    >Tupolev Tu-95 bomber</a
-                  >
-                  <ul
-                    class="w-100 list-unstyled d-flex justify-content-between mb-0"
-                  >
-                    <li class="pt-2">
-                      <span
-                        class="product-color-dot color-dot-red float-left rounded-circle ml-1"
-                      ></span>
-                      <span
-                        class="product-color-dot color-dot-blue float-left rounded-circle ml-1"
-                      ></span>
-                      <span
-                        class="product-color-dot color-dot-black float-left rounded-circle ml-1"
-                      ></span>
-                      <span
-                        class="product-color-dot color-dot-light float-left rounded-circle ml-1"
-                      ></span>
-                      <span
-                        class="product-color-dot color-dot-green float-left rounded-circle ml-1"
-                      ></span>
-                    </li>
-                  </ul>
-                  <ul class="list-unstyled d-flex justify-content-center mb-1">
-                    <li>
-                      <i class="text-warning fa fa-star"></i>
-                      <i class="text-warning fa fa-star"></i>
-                      <i class="text-warning fa fa-star"></i>
-                      <i class="text-muted fa fa-star"></i>
-                      <i class="text-muted fa fa-star"></i>
-                    </li>
-                  </ul>
-                  <p class="text-center mb-0">10,000,000 DT</p>
-                </div>
-              </div>
-            </div>
-         
+            <?php } ?>
+
+
+
+
           </div>
           <div div="row">
             <ul class="pagination pagination-lg justify-content-end">
