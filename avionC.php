@@ -34,8 +34,44 @@ class AvionC {
         }
       
     }
-
-
+    public function supprimerAvion($id) 
+    {
+        $sql = "DELETE FROM avion where id =:id";
+        $db = config::getConnexion();
+        $req=$db->prepare($sql);
+        $req->bindValue(':id', $id);
+        try {
+            $req->execute();
+        }
+        catch(Exception $e)
+         {
+            die('Erreur:'.$e->getMessage());
+        }
+      
+    }
+    
+    function ajouterAvion($avion){
+        $sql="INSERT INTO avion (id, Nom, prix, etat, choix, img1,img2,img3,img4) 
+        VALUES (:id,:nom,:prix, :etat,:choix, :img1, :img2, :img3, :img4)";
+        $db = config::getConnexion();
+        try{
+            $query = $db->prepare($sql);
+            $query->execute([
+                'id' => $avion->getId(),
+                'Nom' => $avion->getNom(),
+                'prix' => $avion->getPrix(),
+                'etat' => $avion->getEtat(),
+                'choix' => $avion->getChoix(),
+                'img1' => $avion->getImg1(),
+                'img2' => $avion->getImg2(),
+                'img3' => $avion->getImg3(),
+                'img4' => $avion->getImg4()
+            ]);			
+        }
+        catch (Exception $e){
+            echo 'Erreur: '.$e->getMessage();
+        }			
+    }
 
 }
 ?>
