@@ -5,17 +5,19 @@
 		private $prix=null;
 		private $etat=null;
 		private $choix=null;
+		private $km=null;
 		private $img1;
 		private $img2;
         private $img3;
         private $img4;
 		
-		function __construct($id, $nom, $prix, $etat, $choix, $img1, $img2, $img3, $img4){
+		function __construct($id, $nom, $prix, $etat, $choix,$km, $img1, $img2, $img3, $img4){
 			$this->id=$id;
 			$this->nom=$nom;
 			$this->prix=$prix;
 			$this->etat=$etat;
 			$this->choix=$choix;
+			$this->km=$km;
 			$this->img1=$img1;
             $this->img2=$img1;
             $this->img3=$img1;
@@ -36,6 +38,9 @@
 		function getChoix(){
 			return $this->choix;
 		}
+		function getKm(){
+			return $this->km;
+		}
 		function getImg1(){
 			return $this->img1;
 		}
@@ -48,6 +53,11 @@
         function getImg4(){
 			return $this->img4;
 		}
+
+
+
+
+
 		function setId(string $id){
 			$this->id=$id;
 		}
@@ -59,6 +69,12 @@
 		}
 		function setEtat(string $etat){
 			$this->etat=$etat;
+		}
+		function setChoix(string $choix){
+			$this->choix=$choix;
+		}
+		function setKm(string $km){
+			$this->km=$km;
 		}
 		function setImg1(string $img1){
 			$this->img1=$img1;

@@ -34,10 +34,20 @@ https://templatemo.com/tm-559-zay-shop
   <body>
 
 
+
+
+
+
+
   <?php include 'avionC.php';
 	$avionC=new AvionC();
 	$listeavion=$avionC->afficherAvions(); ?>
 
+  
+  
+<?php 
+	$categorieC=new CategorieC();
+	$listecategorie=$categorieC->afficherCategorie(); ?>
   
     <!-- Start Top Nav -->
     <nav class="navbar navbar-expand-lg bg-dark navbar-light d-none d-lg-block" id="templatemo_nav_top">
@@ -196,9 +206,11 @@ https://templatemo.com/tm-559-zay-shop
                 <i class="pull-right fa fa-fw fa-chevron-circle-down mt-1"></i>
               </a>
               <ul id="collapseTwo" class="collapse list-unstyled pl-3">
-                <li><a class="text-decoration-none" href="#">Jet prives</a></li>
-                <li><a class="text-decoration-none" href="#">Avion civil</a></li>
-                <li><a class="text-decoration-none" href="#">Avion transport</a></li>
+              <?php  foreach($listecategorie as $categorie){  ?>
+                <li><a class="text-decoration-none" href="#"><?php echo $categorie['nom']; ?></a></li>
+
+                <?php  }  ?> 
+                
               </ul>
             </li>
           </ul>

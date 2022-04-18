@@ -838,5 +838,16 @@ https://templatemo.com/tm-559-zay-shop
       });
     </script>
     <!-- End Slider Script -->
+    <script>
+
+$( document ).ready(function() {
+    console.log( "ready!" );
+});
+
+
+
+
+
+    </script>
   </body>
 </html>

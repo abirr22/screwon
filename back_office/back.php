@@ -20,7 +20,7 @@
 
 <body>
 
-   <?php include '../avionC.php';
+   <?php include '../avionC.php'; 
 	$avionC=new AvionC();
 	$listeavion=$avionC->afficherAvions(); ?>
     <!-- ============================================================== -->
@@ -32,7 +32,7 @@
         <!-- ============================================================== -->
         <div class="dashboard-header">
             <nav class="navbar navbar-expand-lg bg-white fixed-top">
-                <a class="navbar-brand" href="index.html">Concept</a>
+                <a class="navbar-brand" href="index.html">Tayarni</a>
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
                 </button>
@@ -61,7 +61,7 @@
                                             <a href="#" class="list-group-item list-group-item-action">
                                                 <div class="notification-info">
                                                     <div class="notification-list-user-img"><img src="assets/images/avatar-3.jpg" alt="" class="user-avatar-md rounded-circle"></div>
-                                                    <div class="notification-list-user-block"><span class="notification-list-user-name">Mouhamed amine</span>is now following you
+                                                    <div class="notification-list-user-block"><span class="notification-list-user-name">Abir khelifi</span>is now following you
                                                         <div class="notification-date">2 days ago</div>
                                                     </div>
                                                 </div>
@@ -126,7 +126,7 @@
                             <a class="nav-link nav-user-img" href="#" id="navbarDropdownMenuLink2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><img src="assets/images/avatar-1.jpg" alt="" class="user-avatar-md rounded-circle"></a>
                             <div class="dropdown-menu dropdown-menu-right nav-user-dropdown" aria-labelledby="navbarDropdownMenuLink2">
                                 <div class="nav-user-info">
-                                    <h5 class="mb-0 text-white nav-user-name">Mouhamed amine messaoudi </h5>
+                                    <h5 class="mb-0 text-white nav-user-name">Abir khelifi </h5>
                                     <span class="status"></span><span class="ml-2">Available</span>
                                 </div>
                                 <a class="dropdown-item" href="#"><i class="fas fa-user mr-2"></i>Account</a>
@@ -157,7 +157,7 @@
                                 Menu
                             </li>
                             <li class="nav-item ">
-                                <a class="nav-link active" href="#" data-toggle="collapse" aria-expanded="false" data-target="#submenu-1" aria-controls="submenu-1"><i class="fa fa-fw fa-user-circle"></i>Compte <span class="badge badge-success">6</span></a>
+                                <a class="nav-link active" href="#" data-toggle="collapse" aria-expanded="false" data-target="#submenu-1" aria-controls="submenu-1"><i class="fa fa-fw fa-user-circle"></i>gestion de vente <span class="badge badge-success">6</span></a>
                                 <div id="submenu-1" class="collapse submenu" style="">
                                     <ul class="nav flex-column">
                                         <li class="nav-item">
@@ -243,23 +243,23 @@
                                 </div>
                                 <div class="form-group">
                                     <label>img1</label>
-                                    <input type="text" name="img1"  class="form-control" id="input-img1">
+                                    <input type="file" name="img1"  class="form-control" id="input-img1">
                                 </div>
                                 <div class="form-group">
                                     <label>img2</label>
-                                    <input type="text" name="img2" class="form-control" id="input-img2">
+                                    <input type="file" name="img2" class="form-control" id="input-img2">
                                 </div>
                                 <div class="form-group">
                                     <label>img3</label>
-                                    <input type="text" name="img3" class="form-control" id="input-img3">
+                                    <input type="file" name="img3" class="form-control" id="input-img3">
                                 </div>
                                 <div class="form-group">
                                     <label>img4</label>
-                                    <input type="text" name="img4" class="form-control" id="input-img4">
+                                    <input type="file" name="img4" class="form-control" id="input-img4">
                                 </div>
 
 
-                                <button type="submit" class="btn btn-primary">Enregistrer</button>   
+                                <button id="btn-submit"type="submit" class="btn btn-primary">Enregistrer</button>   
                                 </form>
                             </div>
                             <div class="modal-footer">
@@ -302,7 +302,7 @@
                                     </tr>
                                 </thead>
                                 <tbody>
-                                  <?php  foreach($listeavion as $avion){ ?>  
+                                  <?php  foreach($listeavion as $avion){ //boucle for ?>  
                                     <tr>
                                         
                                         <td> <?php echo $avion['id']; ?> </td>
@@ -381,6 +381,42 @@
     <script src="assets/vendor/charts/c3charts/d3-5.4.0.min.js"></script>
     <script src="assets/vendor/charts/c3charts/C3chartjs.js"></script>
     <script src="assets/libs/js/dashboard-ecommerce.js"></script>
+    <script>
+
+
+$( document ).ready(function() {  //fonction trecuperi valeur fi west champs id o amalt test est ce que le champs adheka vide wale 
+    console.log( "ready!" );
+    var inputId= $('#input-id').val();
+    //methode ajaxe
+    if (inputId=='')
+    {   
+        $('#btn-submit').attr('disabled',true); //bloukit l boutton 
+    }
+
+    $('#input-id').on('change',function onInputIdChange(){ 
+        
+
+        var inputId= $('#input-id').val();
+        console.log(inputId);
+        console.log(inputId!='');
+        
+        console.log(parseInt(inputId)>0);
+        if (inputId!=''&&  parseInt(inputId)>0)
+         {   console.log("boutton nom bloqué");
+            $('#btn-submit').attr('disabled',false); //bloukit l boutton 
+        }
+        else {$('#btn-submit').attr('disabled',true);
+            console.log("boutton  bloqué");
+        }
+    })  
+
+});
+
+
+
+
+</script>
+    
     
 </body>
  
