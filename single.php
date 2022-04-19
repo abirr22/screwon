@@ -840,9 +840,7 @@ https://templatemo.com/tm-559-zay-shop
     <!-- End Slider Script -->
     <script>
 
-$( document ).ready(function() {
-    console.log( "ready!" );
-});
+
 
 
 

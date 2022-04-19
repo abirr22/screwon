@@ -220,10 +220,13 @@
                                 <div class="form-group">
                                     <label>id</label>
                                     <input type="text" name="id" class="form-control" id="input-id">
+
+                                    <small id="input-id-error" class="form-text text-danger d-none">veuillez entrer votre Id</small>
                                 </div>
                                 <div class="form-group">
                                     <label>nom</label>
                                     <input type="text" name="nom" class="form-control" id="input-nom">
+                                    <small id="input-nom-error" class="form-text text-danger d-none">veuillez entrer votre nom</small>
                                 </div>
                                 <div class="form-group">
                                     <label>prix</label>
@@ -259,7 +262,7 @@
                                 </div>
 
 
-                                <button id="btn-submit"type="submit" class="btn btn-primary">Enregistrer</button>   
+                                <button id="btn-submit"type="submit" class="btn btn-primary" disabled >Enregistrer</button>   
                                 </form>
                             </div>
                             <div class="modal-footer">
@@ -385,28 +388,43 @@
 
 
 $( document ).ready(function() {  //fonction trecuperi valeur fi west champs id o amalt test est ce que le champs adheka vide wale 
-    console.log( "ready!" );
-    var inputId= $('#input-id').val();
-    //methode ajaxe
-    if (inputId=='')
-    {   
-        $('#btn-submit').attr('disabled',true); //bloukit l boutton 
-    }
-
-    $('#input-id').on('change',function onInputIdChange(){ 
+    
+    $('#input-id').on('change',function onInputIdChange()
+    { 
+         var inputId= $('#input-id').val();
         
-
-        var inputId= $('#input-id').val();
-        console.log(inputId);
-        console.log(inputId!='');
         
-        console.log(parseInt(inputId)>0);
-        if (inputId!=''&&  parseInt(inputId)>0)
-         {   console.log("boutton nom bloqué");
+        if (inputId!=''&& parseInt(inputId)>0)
+        {  
+            
+            document.getElementById('input-id-error').classList.add('d-none')
             $('#btn-submit').attr('disabled',false); //bloukit l boutton 
         }
-        else {$('#btn-submit').attr('disabled',true);
-            console.log("boutton  bloqué");
+        else
+         {
+            $('#btn-submit').attr('disabled',true);
+            document.getElementById('input-id-error').classList.remove('d-none')
+            
+        }
+    })  
+
+
+    $('#input-nom').on('change',function onInputNomChange()
+    { 
+         var inputNom= $('#input-nom').val();
+        
+        
+        if (inputNom!=''&& inputNom.length<10)
+        {  
+            
+            document.getElementById('input-nom-error').classList.add('d-none')
+            $('#btn-submit').attr('disabled',false); //bloukit l boutton 
+        }
+        else
+         {
+            $('#btn-submit').attr('disabled',true);
+            document.getElementById('input-nom-error').classList.remove('d-none')
+            
         }
     })  
 
