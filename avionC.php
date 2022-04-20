@@ -83,7 +83,7 @@ class AvionC {
     }
 
 }
-class categorieC {
+class CategorieC {
 
     public function afficherCategorie()
     {
@@ -98,5 +98,51 @@ class categorieC {
             die('erreur:'.$e->getmessage());
         }
     }
+
+    function ajouterCategorie($categorie){
+        $sql="INSERT INTO categorie (id_categorie, nom) 
+        VALUES (:id_categorie,:nom)";
+        $db = config::getConnexion(); //tjibli conx mtee bd
+        try{
+            
+            
+            
+            
+    
+    
+            $query = $db->prepare($sql); //t7adher fonction sql
+            $query->execute([ //yaaml l execution mteeha 
+                'id_categorie' => intval($categorie->getId_categorie()),
+                'nom' => $categorie->getNom(),
+                
+            ]);	
+            echo 'categorie ajoutee: ';		
+        }
+        catch (Exception $e){
+            echo 'Erreur: '.$e->getMessage();
+        }			
+    }
+     function supprimerCategorie($id_categorie) 
+    {
+        $sql = "DELETE FROM categorie where id_categorie =:id_categorie";
+        $db = config::getConnexion();
+        $req=$db->prepare($sql);
+        $req->bindValue(':id_categorie', $id_categorie);
+        try {
+            $req->execute();
+        }
+        catch(Exception $e)
+         {
+            die('Erreur:'.$e->getMessage());
+        }
+      
+    }
+    
+
+
+
 }
+
+
+
 ?>

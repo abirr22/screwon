@@ -1,11 +1,11 @@
 <?php
-	class categorie{
-		private $id=null;
+	class Categorie{
+		private $id_categorie=null;
 		private $nom=null;
 		
 		
 		function __construct($id_categorie, $nom){
-			$this->id=$id;
+			$this->id_categorie=$id_categorie;
 			$this->nom=$nom;
 			
 		}
@@ -16,7 +16,8 @@
 			return $this->nom;
 		}
 		
-
+		
+        
 
 
 

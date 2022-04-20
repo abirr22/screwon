@@ -46,7 +46,7 @@
                 $_POST['img4']
             );
             $avionC->ajouterAvion($avion); //3ayat l fonction ajouteravvion li heya mawjouda f avionc o 3aditlha variable avion 
-            header('Location:back.php'); // redirection (tbadali l'url )
+            header('Location:gestion_avion.php'); // redirection (tbadali l'url )
         }
         else
             $error = "Missing information";
