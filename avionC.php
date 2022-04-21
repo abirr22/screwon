@@ -82,7 +82,56 @@ class AvionC {
         }			
     }
 
+
+    function modifierAvion($avion){
+        try {
+            $db = config::getConnexion();
+            $query = $db->prepare(
+                "UPDATE avion SET 
+                     
+                    nom = :nom, 
+                    prix = :prix, 
+                    etat = :etat, 
+                    choix = :choix,
+                    km= :km,
+                    img1= :img1,
+                    img2= :img2,
+                    img3= :img3,
+                    img4= :img4
+                WHERE id= :id"
+            );
+            echo      $avion->getNom();
+               echo $avion->getPrix();
+                echo $avion->getEtat();
+              echo $avion->getChoix();
+               echo $avion->getKm();
+                echo $avion->getImg1();
+               echo $avion->getImg2();
+               echo $avion->getImg3();
+              echo $avion->getImg4();
+               echo intval($avion->getId());
+            $query->execute([
+                
+                'nom' => $avion->getNom(),
+                'prix' => intval($avion->getPrix()),
+                'etat' => $avion->getEtat(),
+                'choix' => $avion->getChoix(),
+                'km' => intval($avion->getKm()),
+                'img1' => $avion->getImg1(),
+                'img2' => $avion->getImg2(),
+                'img3' => $avion->getImg3(),
+                'img4' => $avion->getImg4(),
+                'id' =>   intval($avion->getId()),
+            ]);
+            
+        } catch (PDOException $e) {
+       echo    $e->getMessage();
+        }
+    }
+
+
 }
+
 class CategorieC {
 
     public function afficherCategorie()

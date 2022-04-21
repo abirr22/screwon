@@ -217,6 +217,7 @@
                             </div>
                             <div class="modal-body">
                                 <form action="ajouter_avion.php" method="POST" >
+                                    
                                 <div class="form-group">
                                     <label>id</label>
                                     <input type="text" name="id" class="form-control" id="input-id">
@@ -246,29 +247,29 @@
                                 </div>
                                 <div class="form-group">
                                     <label>img1</label>
-                                    <input type="file" name="img1"  class="form-control" id="input-img1">
+                                    <input type="text" name="img1"  class="form-control" id="input-img1">
                                 </div>
                                 <div class="form-group">
                                     <label>img2</label>
-                                    <input type="file" name="img2" class="form-control" id="input-img2">
+                                    <input type="text" name="img2" class="form-control" id="input-img2">
                                 </div>
                                 <div class="form-group">
                                     <label>img3</label>
-                                    <input type="file" name="img3" class="form-control" id="input-img3">
+                                    <input type="text" name="img3" class="form-control" id="input-img3">
                                 </div>
                                 <div class="form-group">
                                     <label>img4</label>
-                                    <input type="file" name="img4" class="form-control" id="input-img4">
+                                    <input type="text" name="img4" class="form-control" id="input-img4">
                                 </div>
 
 
-                                <button id="btn-submit"type="submit" class="btn btn-primary" disabled >Enregistrer</button>   
+                                <button id="btn-submit"type="submit" class="btn btn-primary" disabled >enregistrer</button>   
                                 </form>
                             </div>
                             <div class="modal-footer">
                                 
-    <button type="button" class="btn btn-secondary" data-dismiss="modal">Annuler</button>
-  </div>
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Annuler</button>
+     </div>
 </div>
 </div>
 </div>
@@ -287,7 +288,7 @@
 
 
 
-                        <div class="card-body">
+                          <div class="card-body">
                             <table class="table">
                                 <thead>
                                     <tr>
@@ -301,6 +302,7 @@
                                         <th scope="col">img2</th>
                                         <th scope="col">img3</th>
                                         <th scope="col">img4</th>
+                                        
                                         <th scope="col">action</th>
                                     </tr>
                                 </thead>
@@ -318,13 +320,18 @@
                                         <td><?php echo $avion['img2']; ?></td>
                                         <td><?php echo $avion['img3']; ?></td>
                                         <td><?php echo $avion['img4']; ?></td>
-                                        <td><button class="btn btn-secondary mr-2">Modifier</button> 
+
+                                       
+                                        <td><button onClick="select_avion('<?php echo $avion['id'] ?>','<?php echo $avion['nom'] ?>','<?php echo $avion['prix'] ?>','<?php echo $avion['etat'] ?>','<?php echo $avion['choix'] ?>','<?php echo $avion['km'] ?>','<?php echo $avion['img1'] ?>','<?php echo $avion['img2'] ?>','<?php echo $avion['img3'] ?>','<?php echo $avion['img4'] ?>')" type="button" class="btn btn-secondary" data-toggle="modal" data-target="#exampleModal1">
+                           Modifier 
+                          </button>  
                                         <a class="btn btn-danger" href="supprimer_avion.php?id=<?php echo $avion['id']; ?>">Supprimer</a>
                                     </td>
 
                                         
                                     </tr>
                                     <?php } ?>
+                                 
                                 </tbody>
                             </table>
                         </div>
@@ -386,9 +393,24 @@
     <script src="assets/libs/js/dashboard-ecommerce.js"></script>
     <script>
 
+function select_avion(id,nom,prix,etat,choix,km,img1,img2,img3,img4) //les champs mtee3 formulaire kaada nhot f les valeurs mtehom 
+{
+    $('#input-1id').val(id);
+    $('#input-1nom').val(nom);
+    $('#input-1prix').val(prix);
+    $('#input-1etat').val(etat);
+    $('#input-1choix').val(choix);
+    $('#input-1km').val(km);
+    $('#input-1img1').val(img1);
+    $('#input-1img2').val(img2);
+    $('#input-1img3').val(img3);
+    $('#input-1img4').val(img4);
 
+    console.log(id+nom+prix+etat+choix+km+img1+img2+img3+img4)
+}
 $( document ).ready(function() {  //fonction trecuperi valeur fi west champs id o amalt test est ce que le champs adheka vide wale 
-    
+   
+   //function fuckyou(){console.log('fuckyou')}
     $('#input-id').on('change',function onInputIdChange()
     { 
          var inputId= $('#input-id').val();
@@ -434,7 +456,71 @@ $( document ).ready(function() {  //fonction trecuperi valeur fi west champs id 
 
 
 </script>
-    
+  
+<div class="modal fade" id="exampleModal1" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                        <div class="modal-dialog" role="document">
+                          <div class="modal-content">
+                            <div class="modal-header">
+                              <h5 class="modal-title">Modal title</h5>
+                              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                              </button>
+                            </div>
+                            <div class="modal-body">
+                                <form action="modifier_avion.php" method="POST" >
+                                    
+                                <div class="form-group">
+                                    <label>id</label>
+                                    <input type="text" name="id" class="form-control"  id="input-1id">
+
+                                    <small id="input-id-error" class="form-text text-danger d-none">veuillez entrer votre Id</small>
+                                </div>
+                                <div class="form-group">
+                                    <label>nom</label>
+                                    <input type="text" name="nom" class="form-control" id="input-1nom">
+                                    <small id="input-nom-error" class="form-text text-danger d-none">veuillez entrer votre nom</small>
+                                </div>
+                                <div class="form-group">
+                                    <label>prix</label>
+                                    <input type="text" name="prix" class="form-control" id="input-1prix">
+                                </div>
+                                <div class="form-group">
+                                    <label>etat</label>
+                                    <input type="text"name="etat" class="form-control" id="input-1etat">
+                                </div>
+                                <div class="form-group">
+                                    <label>choix</label>
+                                    <input type="text" name="choix" class="form-control" id="input-1choix">
+                                </div>
+                                <div class="form-group">
+                                    <label>km</label>
+                                    <input type="text" name="km" class="form-control" id="input-1km">
+                                </div>
+                                <div class="form-group">
+                                    <label>img1</label>
+                                    <input type="text" name="img1"  class="form-control" id="input-1img1">
+                                </div>
+                                <div class="form-group">
+                                    <label>img2</label>
+                                    <input type="text" name="img2" class="form-control" id="input-1img2">
+                                </div>
+                                <div class="form-group">
+                                    <label>img3</label>
+                                    <input type="text" name="img3" class="form-control" id="input-1img3">
+                                </div>
+                                <div class="form-group">
+                                    <label>img4</label>
+                                    <input type="text" name="img4" class="form-control" id="input-1img4">
+                                </div>
+
+
+                                <button id="btn-submit"type="submit" class="btn btn-primary"  >enregistrer</button>   
+                                </form>
+                            </div>
+                            <div class="modal-footer">
+                                
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Annuler</button>
+     </div>
     
 </body>
  
