@@ -188,7 +188,30 @@ class CategorieC {
     }
     
 
-
+    function modifierCategorie($categorie){
+        try {
+            $db = config::getConnexion();
+            $query = $db->prepare(
+                "UPDATE categorie SET 
+                     
+                    nom = :nom
+                   
+                WHERE id_categorie= :id_categorie"
+            );
+            echo      $categorie->getNom();
+               
+               echo intval($categorie->getId_categorie());
+            $query->execute([
+                
+                'nom' => $categorie->getNom(),
+                
+                'id_categorie' =>   intval($categorie->getId_categorie()),
+            ]);
+            
+        } catch (PDOException $e) {
+       echo    $e->getMessage();
+        }
+    }
 
 }
 

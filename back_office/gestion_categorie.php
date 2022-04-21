@@ -239,7 +239,7 @@
                                 
 
 
-                                <button id="btn-submit"type="submit" class="btn btn-primary" disabled >Enregistrer</button>   
+                                <button id="btn-submit"type="submit" class="btn btn-primary"  >Enregistrer</button>   
                                 </form>
                             </div>
                             <div class="modal-footer">
@@ -281,7 +281,9 @@
                                         <td> <?php echo $categorie['id_categorie']; ?> </td>
                                         <td><?php echo $categorie['nom']; ?></td>
                                        
-                                        <td><button class="btn btn-secondary mr-2">Modifier</button> 
+                                        <td><button  onClick="select_categorie('<?php echo $categorie['id_categorie'] ?>','<?php echo $categorie['nom'] ?>')" type="button" class="btn btn-secondary" data-toggle="modal" data-target="#exampleModal2">
+                          Modifier
+                                   </button> 
                                         <a class="btn btn-danger" href="supprimer_categorie.php?id-categorie=<?php echo $categorie['id_categorie']; ?>">Supprimer</a>
                                     </td>
 
@@ -357,6 +359,15 @@
   
 
 <script>
+
+function select_categorie(id_categorie,nom) //les champs mtee3 formulaire kaada nhot f les valeurs mtehom 
+{
+    $('#input-2id-categorie').val(id_categorie);
+    $('#input-2nom').val(nom);
+    
+
+    console.log(id_categorie+nom)
+}
 $( document ).ready(function() {  //fonction trecuperi valeur fi west champs id o amalt test est ce que le champs adheka vide wale 
     
     $('#input-id-categorie').on('change',function onInputIdChange()
@@ -400,7 +411,45 @@ $( document ).ready(function() {  //fonction trecuperi valeur fi west champs id 
 
 });
 </script>
-    
+<div class="modal fade" id="exampleModal2" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabe2" aria-hidden="true">
+                        <div class="modal-dialog" role="document">
+                          <div class="modal-content">
+                            <div class="modal-header">
+                              <h5 class="modal-title">Modal title</h5>
+                              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                              </button>
+                            </div>
+                            <div class="modal-body">
+                                <form action="modifier_categorie.php" method="POST" >
+                                    
+                                <div class="form-group">
+                                    <label>id_categorie</label>
+                                    <input type="text" name="id_categorie" class="form-control"  id="input-2id-categorie">
+
+                                    <small id="input-id-error" class="form-text text-danger d-none">veuillez entrer votre Id</small>
+                                </div>
+                                <div class="form-group">
+                                    <label>nom</label>
+                                    <input type="text" name="nom" class="form-control" id="input-2nom">
+                                    <small id="input-nom-error" class="form-text text-danger d-none">veuillez entrer votre nom</small>
+                                </div>
+                                
+                                
+                                
+                                
+                               
+                                  
+
+
+                                <button id="btn-submit"type="submit" class="btn btn-primary"  >enregistrer</button>   
+                                </form>
+                            </div>
+                            <div class="modal-footer">
+                                
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Annuler</button>
+     </div>
+      
 </body>
  
 </html>

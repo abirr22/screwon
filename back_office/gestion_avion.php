@@ -410,7 +410,7 @@ function select_avion(id,nom,prix,etat,choix,km,img1,img2,img3,img4) //les champ
 }
 $( document ).ready(function() {  //fonction trecuperi valeur fi west champs id o amalt test est ce que le champs adheka vide wale 
    
-   //function fuckyou(){console.log('fuckyou')}
+  
     $('#input-id').on('change',function onInputIdChange()
     { 
          var inputId= $('#input-id').val();
