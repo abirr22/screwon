@@ -129,6 +129,21 @@ class AvionC {
         }
     }
 
+    function affichertrier()
+    {
+        $requete = "select * from avion order by nom";
+        $config = config::getConnexion();
+        try {
+            $querry = $config->prepare($requete);
+            $querry->execute();
+            $result = $querry->fetchAll();
+            return $result ;
+        } catch (PDOException $th) {
+             $th->getMessage();
+        }
+    }
+
+
 
 }
 

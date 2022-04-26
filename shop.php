@@ -156,23 +156,31 @@ https://templatemo.com/tm-559-zay-shop
           action=""
           method="get"
           class="modal-content modal-body border-0 p-0"
-        >
+
+        > 
+
           <div class="input-group mb-2">
             <input
               type="text"
               class="form-control"
               id="inputModalSearch"
               name="q"
-              placeholder="Search ..."
+             value="<?php echo $q?>"
+              placeholder="Search ...
             />
+
             <button
-              type="submit"
+              type="submit
               class="input-group-text bg-success text-light"
             >
               <i class="fa fa-fw fa-search text-white"></i>
             </button>
+      
           </div>
         </form>
+        <?php if $afficher=="oui" { ?>
+        <div id ="resultats">
+          <div id="id"><?=count($tab) ?></div>  
       </div>
     </div>
 
@@ -625,5 +633,26 @@ https://templatemo.com/tm-559-zay-shop
     <script src="assets/js/templatemo.js"></script>
     <script src="assets/js/custom.js"></script>
     <!-- End Script -->
+
+    <script>
+function myFunction() {
+  var input, filter, table, tr, td, i, txtValue;
+  input = document.getElementById("myInput");
+  filter = input.value.toUpperCase();
+  table = document.getElementById("myTable");
+  tr = table.getElementsByTagName("tr");
+  for (i = 0; i < tr.length; i++) {
+    td = tr[i].getElementsByTagName("td")[0];
+    if (td) {
+      txtValue = td.textContent || td.innerText;
+      if (txtValue.toUpperCase().indexOf(filter) > -1) {
+        tr[i].style.display = "";
+      } else {
+        tr[i].style.display = "none";
+      }
+    }       
+  }
+}
+</script>
   </body>
 </html>

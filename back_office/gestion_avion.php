@@ -20,9 +20,12 @@
 
 <body>
 
+
    <?php include '../avionC.php'; 
 	$avionC=new AvionC();
-	$listeavion=$avionC->afficherAvions(); ?>
+	$listeavion=$avionC->afficherAvions(); 
+    
+    ?>
     <!-- ============================================================== -->
     <!-- main wrapper -->
     <!-- ============================================================== -->
@@ -38,11 +41,7 @@
                 </button>
                 <div class="collapse navbar-collapse " id="navbarSupportedContent">
                     <ul class="navbar-nav ml-auto navbar-right-top">
-                        <li class="nav-item">
-                            <div id="custom-search" class="top-search-bar">
-                                <input class="form-control" type="text" placeholder="Search..">
-                            </div>
-                        </li>
+                       
                         <li class="nav-item dropdown notification">
                             <a class="nav-link nav-icons" href="#" id="navbarDropdownMenuLink1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="fas fa-fw fa-bell"></i> <span class="indicator"></span></a>
                             <ul class="dropdown-menu dropdown-menu-right notification-dropdown">
@@ -274,22 +273,24 @@
 </div>
 </div>
 
+<input type="text" id="id" onkeyup="myFunction()" placeholder="Search for names.." title="Type in a name" class="collapse navbar-collapse">
 
+<li class="nav-item">
+                            <div id="custom-search" class="top-search-bar">
+                                <input class="form-control" type="text" placeholder="Search..">
+                            </div>
+                        </li>
+  
                     <div class="card">
                         <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
                            Ajouter Avion
                           </button>  
                        
+                          
 
-
-
-
-
-
-
-
-                          <div class="card-body">
-                            <table class="table">
+                         
+                     <div class="card-body">
+                            <table class="table" id="myTable">
                                 <thead>
                                     <tr>
                                         <th scope="col">id</th>
@@ -322,13 +323,15 @@
                                         <td><?php echo $avion['img4']; ?></td>
 
                                        
-                                        <td><button onClick="select_avion('<?php echo $avion['id'] ?>','<?php echo $avion['nom'] ?>','<?php echo $avion['prix'] ?>','<?php echo $avion['etat'] ?>','<?php echo $avion['choix'] ?>','<?php echo $avion['km'] ?>','<?php echo $avion['img1'] ?>','<?php echo $avion['img2'] ?>','<?php echo $avion['img3'] ?>','<?php echo $avion['img4'] ?>')" type="button" class="btn btn-secondary" data-toggle="modal" data-target="#exampleModal1">
-                           Modifier 
-                          </button>  
+                                        <td>
+                                            <button onClick="select_avion('<?php echo $avion['id'] ?>','<?php echo $avion['nom'] ?>','<?php echo $avion['prix'] ?>','<?php echo $avion['etat'] ?>','<?php echo $avion['choix'] ?>','<?php echo $avion['km'] ?>','<?php echo $avion['img1'] ?>','<?php echo $avion['img2'] ?>','<?php echo $avion['img3'] ?>','<?php echo $avion['img4'] ?>')" type="button" class="btn btn-secondary" data-toggle="modal" data-target="#exampleModal1">
+                                                 Modifier 
+                                            </button>  
                                         <a class="btn btn-danger" href="supprimer_avion.php?id=<?php echo $avion['id']; ?>">Supprimer</a>
+                                        
                                     </td>
 
-                                        
+                                    
                                     </tr>
                                     <?php } ?>
                                  
@@ -522,6 +525,30 @@ $( document ).ready(function() {  //fonction trecuperi valeur fi west champs id 
                 <button type="button" class="btn btn-secondary" data-dismiss="modal">Annuler</button>
      </div>
     
+
+
+
+
+     <script>
+function myFunction() {
+  var id  , filter, table, tr, td, i, txtValue;
+  id  = document.getElementById("id");
+  filter = input.value.toUpperCase();
+  table = document.getElementById("myTable");
+  tr = table.getElementsByTagName("tr");
+  for (i = 0; i < tr.length; i++) {
+    td = tr[i].getElementsByTagName("td")[0];
+    if (td) {
+      txtValue = td.textContent || td.innerText;
+      if (txtValue.toUpperCase().indexOf(filter) > -1) {
+        tr[i].style.display = "";
+      } else {
+        tr[i].style.display = "none";
+      }
+    }       
+  }
+}
+</script>
 </body>
  
 </html>
