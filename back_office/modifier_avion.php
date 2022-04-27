@@ -4,9 +4,9 @@
 
     $error = "";
 
-    // create adherent
+    // create 
     $avion = null;
-    echo $_POST["id"];
+    echo $_POST["id"]; // utilisé pour passer une variable (bch natih l id l bch ybadlou )
    
        echo  $_POST['nom'];
        echo  $_POST['prix']; 
@@ -32,8 +32,8 @@
         $_POST['img4']
     );
    //echo $_POST["id"];
-   $avionC->modifierAvion($avion);
-    header('Location:gestion_avion.php');
+   $avionC->modifierAvion($avion); // 3ayatet lel fonction modifieravion o hatitha f west variable 
+    header('Location:gestion_avion.php'); //header permet o specifier lpage li bch yaffichili feha resulat mte code 
     ?>  
     
    

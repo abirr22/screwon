@@ -215,7 +215,7 @@
                               </button>
                             </div>
                             <div class="modal-body">
-                                <form action="ajouter_avion.php" method="POST" >
+                                <form action="ajouter_avion.php" method="POST" >  <!-- ... action : where to send the form-data/  post: envoie des données au serveur -->.
                                     
                                 <div class="form-group">
                                     <label>id</label>
@@ -273,13 +273,9 @@
 </div>
 </div>
 
-<input type="text" id="id" onkeyup="myFunction()" placeholder="Search for names.." title="Type in a name" class="collapse navbar-collapse">
+<input type="text" id="myInput" onkeyup="myFunction()" placeholder="Search for names.." title="Type in a name">
 
-<li class="nav-item">
-                            <div id="custom-search" class="top-search-bar">
-                                <input class="form-control" type="text" placeholder="Search..">
-                            </div>
-                        </li>
+
   
                     <div class="card">
                         <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
@@ -290,7 +286,7 @@
 
                          
                      <div class="card-body">
-                            <table class="table" id="myTable">
+                            <table id="myTable">  <!-- .. lezem nhot nafes id mtee tableau bch yaarf li howa yekhdem al tableau adheka . -->.
                                 <thead>
                                     <tr>
                                         <th scope="col">id</th>
@@ -308,7 +304,7 @@
                                     </tr>
                                 </thead>
                                 <tbody>
-                                  <?php  foreach($listeavion as $avion){ //boucle for ?>  
+                                  <?php  foreach($listeavion as $avion){ //boucle for bch tparcouri tableau o yaffichili a chaque fois les donnes li fih  ?>  
                                     <tr>
                                         
                                         <td> <?php echo $avion['id']; ?> </td>
@@ -327,7 +323,7 @@
                                             <button onClick="select_avion('<?php echo $avion['id'] ?>','<?php echo $avion['nom'] ?>','<?php echo $avion['prix'] ?>','<?php echo $avion['etat'] ?>','<?php echo $avion['choix'] ?>','<?php echo $avion['km'] ?>','<?php echo $avion['img1'] ?>','<?php echo $avion['img2'] ?>','<?php echo $avion['img3'] ?>','<?php echo $avion['img4'] ?>')" type="button" class="btn btn-secondary" data-toggle="modal" data-target="#exampleModal1">
                                                  Modifier 
                                             </button>  
-                                        <a class="btn btn-danger" href="supprimer_avion.php?id=<?php echo $avion['id']; ?>">Supprimer</a>
+                                        <a class="btn btn-danger" href="supprimer_avion.php?id=<?php echo $avion['id']; ?>">Supprimer</a>  <!-- . href = taatini lien li bch yekhdem l supprimer .. -->.
                                         
                                     </td>
 
@@ -459,7 +455,7 @@ $( document ).ready(function() {  //fonction trecuperi valeur fi west champs id 
 
 
 </script>
-  
+  <!-- ... un deuxieme form lel modifier  -->.
 <div class="modal fade" id="exampleModal1" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
                         <div class="modal-dialog" role="document">
                           <div class="modal-content">
@@ -476,7 +472,7 @@ $( document ).ready(function() {  //fonction trecuperi valeur fi west champs id 
                                     <label>id</label>
                                     <input type="text" name="id" class="form-control"  id="input-1id">
 
-                                    <small id="input-id-error" class="form-text text-danger d-none">veuillez entrer votre Id</small>
+                                    <small id="input-id-error" class="form-text text-danger d-none">veuillez entrer votre Id</small> 
                                 </div>
                                 <div class="form-group">
                                     <label>nom</label>
@@ -529,17 +525,17 @@ $( document ).ready(function() {  //fonction trecuperi valeur fi west champs id 
 
 
 
-     <script>
+<script>
 function myFunction() {
-  var id  , filter, table, tr, td, i, txtValue;
-  id  = document.getElementById("id");
-  filter = input.value.toUpperCase();
-  table = document.getElementById("myTable");
-  tr = table.getElementsByTagName("tr");
+  var input, filter, table, tr, td, i, txtValue;
+  input = document.getElementById("myInput"); //bch l recherche taref li heya tekhdem al id 
+  filter = input.value.toUpperCase(); // ki ndakhlou maj wla mini yaaml l recherche 
+  table = document.getElementById("myTable"); //bch yaare l table l nekhdem aleha
+  tr = table.getElementsByTagName("tr"); //bch yekhou ligne 
   for (i = 0; i < tr.length; i++) {
-    td = tr[i].getElementsByTagName("td")[0];
+    td = tr[i].getElementsByTagName("td")[0]; 
     if (td) {
-      txtValue = td.textContent || td.innerText;
+      txtValue = td.textContent || td.innerText; // 
       if (txtValue.toUpperCase().indexOf(filter) > -1) {
         tr[i].style.display = "";
       } else {

@@ -7,7 +7,7 @@
 
     // create adherent
     $categorie = null;
-    echo $_POST["id_categorie"]; 
+    echo $_POST["id_categorie"]; // utilisé pour passer une variable (bch natih l id l bch ybadlou )
       
     // create an instance of the controller
     $categorieC = new CategorieC();
@@ -19,8 +19,8 @@
     );
    //echo $_POST["id"];
 
-   $categorieC->modifierCategorie($categorie);
-    header('Location:gestion_categorie.php');
+   $categorieC->modifierCategorie($categorie); 
+    header('Location:gestion_categorie.php'); //header permet o specifier lpage li bch yaffichili feha resulat mte code
     ?>  
     
    

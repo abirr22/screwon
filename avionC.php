@@ -6,10 +6,10 @@ class AvionC {
 
     public function afficherAvions()
     {
-        $sql="select * from avion";
-        $db=config::getconnexion();
+        $sql="select * from avion"; //bch n3ayet l les avion l kol mel base de donné 
+        $db=config::getconnexion(); // naayet l fonction getconnexion taamli conx maa base de donné
         try{
-            $liste = $db->query($sql);
+            $liste = $db->query($sql); // liste nhot feha l sql mteei 
             return $liste;
         }
         catch(exeption $e)
@@ -27,7 +27,7 @@ class AvionC {
         $req->bindValue(':id', $id);
         try {
             $req->execute(); 
-            return $req->fetch();
+            return $req->fetch(); // fetch trecuperi les ligne o trajaali un tableau enumere
         }
         catch(Exception $e)
          {
@@ -39,8 +39,8 @@ class AvionC {
     {
         $sql = "DELETE FROM avion where id =:id";
         $db = config::getConnexion();
-        $req=$db->prepare($sql);
-        $req->bindValue(':id', $id);
+        $req=$db->prepare($sql); //t7adher fonction sql
+        $req->bindValue(':id', $id); // on a Associe une valeur à un paramètre (id)
         try {
             $req->execute();
         }
@@ -64,7 +64,7 @@ class AvionC {
 
             $query = $db->prepare($sql); //t7adher fonction sql
             $query->execute([ //yaaml l execution mteeha 
-                'id' => intval($avion->getId()),
+                'id' => intval($avion->getId()), //intval ay chaine de caratere trodha entier
                 'nom' => $avion->getNom(),
                 'prix' => intval($avion->getPrix()),
                 'etat' => $avion->getEtat(),
