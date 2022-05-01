@@ -41,7 +41,7 @@ https://templatemo.com/tm-559-zay-shop
 
   <?php include 'avionC.php';
 	$avionC=new AvionC();
-	$listeavion=$avionC->afficherAvions(); ?>
+	$pagination=$avionC->afficherAvions(); ?>
 
   
   
@@ -248,26 +248,16 @@ https://templatemo.com/tm-559-zay-shop
                         </div>
                     </div> -->
           </div>
-        <div class="pagination">
+          <div class="pagination">
           
-        <a href="shop.php">&laquo;</a>
-        <a class="active" href="shop.php">1</a>
-        <a   href="afficherpagination2.php">2</a>
-        <a href="afficherpagination3.php">3</a>
-          <a href="afficherpagination2.php">&raquo;</a>
-        </div>       
-       
-           <?php 
-           
-             
-             $i=0;
-           foreach($pagination as $avion){ 
-               if ($avion['id']< 4  )
-               $i++; ?>
-
-             
-             
-            
+          
+              <?php 
+              $i=0;
+              foreach($pagination as $avion){ 
+                  if ($avion['id']< 3)
+                  $i++;
+   
+                  ?>
             <div class="col-md-4">
               <div class="card mb-4 product-wap rounded-0">
                 <div class="card rounded-0">
@@ -345,32 +335,36 @@ https://templatemo.com/tm-559-zay-shop
 
         
 
+<div class="pagination">
+  <a href="afficherback.php">&laquo;</a>
+  <a class="active" href="afficherback.php">1</a>
+  <a   href="afficherback1.php">2</a>
+  <a href="afficherback2.php">3</a>
+  <a href="afficherback2.php">&raquo;</a>
+</div>
 
 
           </div>
-          <div class="row">
-          
-      
-          
+          <div div="row">
             <ul class="pagination pagination-lg justify-content-end">
-              <li class="page-item active ">
+              <li class="page-item disabled">
                 <a
-                  class="page-link active drounded-0 mr-3 shadow-sm border-top-0 border-left-0"
-                  href="shop.php"
+                  class="page-link rounded-0 mr-3 shadow-sm border-top-0 border-left-0"
+                  href="affichrpagination1.php"
                   tabindex="-1"
                   >1</a
                 >
               </li>
-              <li class="page-item ">
+              <li class="page-item">
                 <a
-                  class="page-link disabled rounded-0 mr-3 shadow-sm border-top-0 border-left-0 text-dark"
+                  class="page-link rounded-0 mr-3 shadow-sm border-top-0 border-left-0 text-dark"
                   href="afficherpagination2.php"
                   >2</a
                 >
               </li>
-              <li class="page-item ">
+              <li class="page-item">
                 <a
-                  class="page-link disable rounded-0 shadow-sm border-top-0 border-left-0 text-dark"
+                  class="page-link active rounded-0 shadow-sm border-top-0 border-left-0 text-dark"
                   href="afficherpagination3.php"
                   >3</a
                 >

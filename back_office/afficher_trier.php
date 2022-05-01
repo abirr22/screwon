@@ -23,7 +23,7 @@
 
    <?php include '../avionC.php'; 
 	$avionC=new AvionC();
-	$listeavion=$avionC->afficherAvions(); 
+	
     $list1avion=$avionC->affichertrier();
     ?>
     <!-- ============================================================== -->
@@ -146,10 +146,6 @@
         <div class="nav-left-sidebar sidebar-dark">
             <div class="menu-list">
                 <nav class="navbar navbar-expand-lg navbar-light">
-
-   
-
-                </style>
                     <a class="d-xl-none d-lg-none" href="#">Dashboard</a>
                     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                         <span class="navbar-toggler-icon"></span>
@@ -254,15 +250,15 @@
                                 </div>
                                 <div class="form-group">
                                     <label>img2</label>
-                                    <input type="file" name="img2" class="form-control" id="input-img2">
+                                    <input type="text" name="img2" class="form-control" id="input-img2">
                                 </div>
                                 <div class="form-group">
                                     <label>img3</label>
-                                    <input type="file" name="img3" class="form-control" id="input-img3">
+                                    <input type="text" name="img3" class="form-control" id="input-img3">
                                 </div>
                                 <div class="form-group">
                                     <label>img4</label>
-                                    <input type="file" name="img4" class="form-control" id="input-img4">
+                                    <input type="text" name="img4" class="form-control" id="input-img4">
                                 </div>
 
 
@@ -278,7 +274,8 @@
 </div>
 
 <input type="text" id="myInput" onkeyup="myFunction()" placeholder="Search for names.." title="Type in a name">
- <a  type="text" id="myInput" href="afficher_trier.php"  class="btn btn-primary" title="trier">trier</a> 
+ <a  type="text" id="myInput" class="btn btn-primary" title="trier">trier</a> 
+
 
 
   
@@ -288,7 +285,7 @@
                           </button>  
                        
                           
-                          <form action="pdf.php" method="post">
+
                          
                      <div class="card-body">
                             <table id="myTable">  <!-- .. lezem nhot nafes id mtee tableau bch yaarf li howa yekhdem al tableau adheka . -->.
@@ -309,7 +306,7 @@
                                     </tr>
                                 </thead>
                                 <tbody>
-                                  <?php  foreach($listeavion as $avion){ //boucle for bch tparcouri tableau o yaffichili a chaque fois les donnes li fih  ?>  
+                                  <?php  foreach($list1avion as $avion){ //boucle for bch tparcouri tableau o yaffichili a chaque fois les donnes li fih  ?>  
                                     <tr>
                                         
                                         <td> <?php echo $avion['id']; ?> </td>
@@ -322,28 +319,24 @@
                                         <td><?php echo $avion['img2']; ?></td>
                                         <td><?php echo $avion['img3']; ?></td>
                                         <td><?php echo $avion['img4']; ?></td>
-                                      
+
                                        
                                         <td>
-                                        
                                             <button onClick="select_avion('<?php echo $avion['id'] ?>','<?php echo $avion['nom'] ?>','<?php echo $avion['prix'] ?>','<?php echo $avion['etat'] ?>','<?php echo $avion['choix'] ?>','<?php echo $avion['km'] ?>','<?php echo $avion['img1'] ?>','<?php echo $avion['img2'] ?>','<?php echo $avion['img3'] ?>','<?php echo $avion['img4'] ?>')" type="button" class="btn btn-secondary" data-toggle="modal" data-target="#exampleModal1">
                                                  Modifier 
                                             </button>  
-                                        <a class="btn btn-danger" href="supprimer_avion.php?id=id">Supprimer</a>  <!-- . href = taatini lien li bch yekhdem l supprimer .. -->.
+                                        <a class="btn btn-danger" href="supprimer_avion.php?id=<?php echo $avion['id']; ?>">Supprimer</a>  <!-- . href = taatini lien li bch yekhdem l supprimer .. -->.
                                         
                                     </td>
 
                                     
                                     </tr>
-                           
                                     <?php } ?>
-                                    <a style="margin-left:1100;"   value="Create PDF" id="btPrint" onclick="createPDF()" class="btn btn-danger">pdf </a>
+                                 
                                 </tbody>
                             </table>
-                            
                         </div>
                     </div>
-                    
                         </div>
                     </div>
                 </div>
@@ -554,45 +547,6 @@ function myFunction() {
   }
 }
 </script>
-
-
-<script>
-    function createPDF() {
-        var Table = document.getElementById('myTable').innerHTML;
-
-        var style = "<style>";
-        style = style + "table {width: 100%;font: 17px Calibri;}";
-        style = style + "table, th, td {border: solid 1px #DDD; border-collapse: collapse;";
-        style = style + "padding: 2px 3px;text-align: center;}";
-        style = style + "</style>";
-
-        
-
-        // CREATE A WINDOW OBJECT.
-        var win = window.open('', '', 'height=700,width=700');
-
-        win.document.write('<html><head>');
-        win.document.write('<title>listeavion</title>');   // <title> FOR PDF HEADER.
-         win.document.write(style);          // ADD STYLE INSIDE THE HEAD TAG.
-        win.document.write('</head>');
-        win.document.write('</body>');
-        win.document.write('<table>');
-        
-        win.document.write(Table);         // THE TABLE CONTENTS INSIDE THE BODY TAG.
-        win.document.write('</body></html>');
-
-        win.document.close();   // CLOSE THE CURRENT WINDOW.
-
-        win.print();    // PRINT THE CONTENTS.
-   
-    }
-</script>
-
-
-
-
-
-
 </body>
  
 </html>
