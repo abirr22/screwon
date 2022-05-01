@@ -19,8 +19,12 @@
 </head>
 
 <body>
+<div class = "Graphe">
+    <?php 
+    echo "< img src=' ./graph.php' />"
+    ?>
 
-
+</div>
    <?php include '../avionC.php'; 
 	$avionC=new AvionC();
 	$listeavion=$avionC->afficherAvions(); 
@@ -279,7 +283,7 @@
 
 <input type="text" id="myInput" onkeyup="myFunction()" placeholder="Search for names.." title="Type in a name">
  <a  type="text" id="myInput" href="afficher_trier.php"  class="btn btn-primary" title="trier">trier</a> 
-
+ <a  type="text" id="myInput" href="graph.php"  class="btn btn-primary" title="trier">statistique</a>
 
   
                     <div class="card">
@@ -288,7 +292,7 @@
                           </button>  
                        
                           
-                          <form action="pdf.php" method="post">
+                        <form action="pdf.php" method="post">
                          
                      <div class="card-body">
                             <table id="myTable">  <!-- .. lezem nhot nafes id mtee tableau bch yaarf li howa yekhdem al tableau adheka . -->.
