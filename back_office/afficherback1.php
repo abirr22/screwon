@@ -318,8 +318,12 @@
                                     </tr>
                                 </thead>
                                 <tbody>
-                                  <?php  foreach($listeavion as $avion){ //boucle for bch tparcouri tableau o yaffichili a chaque fois les donnes li fih  ?>  
-                                    <tr>
+                                <?php 
+                                   foreach($listeavion as $avion){
+                                    if ($avion['id']< 4)
+               
+                                    
+                                    ?>  
                                         
                                         <td> <?php echo $avion['id']; ?> </td>
                                         <td><?php echo $avion['nom']; ?></td>
@@ -349,15 +353,7 @@
                                     <a style="margin-left:1100;"   value="Create PDF" id="btPrint" onclick="createPDF()" class="btn btn-danger">pdf </a>
                                 </tbody>
                             </table>
-                            
-                        </div>
-                    </div>
-                    
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <style>
+                            <style>
             .pagination a {
   color: black;
   float: left;
@@ -374,11 +370,20 @@
 
 <div class="pagination">
   <a href="afficherback.php">&laquo;</a>
-  <a class="active" href="afficherback.php">1</a>
-  <a   href="afficherback1.php">2</a>
+  <a class="disable" href="afficherback.php">1</a>
+ 
+  <a class="active" href="afficherback1.php">2</a>
   <a href="afficherback2.php">3</a>
   <a href="afficherback2.php">&raquo;</a>
 </div>
+                        </div>
+                    </div>
+                    
+                        </div>
+                    </div>
+                </div>
+            </div>
+
             <!-- ============================================================== -->
             <!-- footer -->
             <!-- ============================================================== -->

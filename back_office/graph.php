@@ -3,7 +3,7 @@ include ("src/jpgraph.php"); //des includes
 include ("src/jpgraph_pie.php");
 include ("src/jpgraph_pie3d.php");
 // Some data
-$data = array(40,60);
+$data = array(40 ,60);
 
 // Create the Pie Graph. 
 $graph = new PieGraph(350,250); //pour creer notre pie 

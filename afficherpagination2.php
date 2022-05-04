@@ -254,14 +254,20 @@ https://templatemo.com/tm-559-zay-shop
           <div class="pagination">
           
       
-           <?php 
-           $i=0;
-           foreach($pagination as $avion){ 
-               if ($avion['id']< 4 )
-               $i++;
-
-               ?>
-
+          <a href="shop.php">&laquo;</a>
+        <a class="active" href="shop.php">1</a>
+        <a   href="afficherpagination2.php">2</a>
+        <a href="afficherpagination3.php">3</a>
+          <a href="afficherpagination2.php">&raquo;</a>
+        </div>       
+       
+       
+                    
+                 <?php
+             
+                   foreach( $i=3; $i<6; $i++) { 
+?>
+            
             <div class="col-md-4">
               <div class="card mb-4 product-wap rounded-0">
                 <div class="card rounded-0">
@@ -333,9 +339,11 @@ https://templatemo.com/tm-559-zay-shop
                   </ul>
                   <p class="text-center mb-0"><?php echo $avion['prix']; ?>DT</p>
                 </div>
+                
               </div>
+              <?php } ?>
             </div>
-            <?php } ?>
+           
             
 
 
@@ -344,16 +352,18 @@ https://templatemo.com/tm-559-zay-shop
 
 
           <div div="row">
-            <ul class="pagination">
+            <ul class="card-body">
               <li class="page-item disabled">
+
                 <a
                   class="page-link  rounded-0 mr-3 shadow-sm border-top-0 border-left-0"
                   href="shop.php"
                   tabindex="-1"
                   >1</a
                 >
+
               </li>
-              <li class="pagination">
+              <li class="card-body">
                 <a
                   class="page-link active rounded-0 mr-3 shadow-sm border-top-0 border-left-0 text-dark"
                   href="afficherpagination2.php"
@@ -361,7 +371,7 @@ https://templatemo.com/tm-559-zay-shop
                   >2</a
                 >
               </li>
-              <li class="pagination">
+              <li class="card-body">
                 <a
                   class="page-link rounded-0 shadow-sm border-top-0 border-left-0 text-dark"
                   href="afficherpagination3.php"

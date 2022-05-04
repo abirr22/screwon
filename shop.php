@@ -248,21 +248,17 @@ https://templatemo.com/tm-559-zay-shop
                         </div>
                     </div> -->
           </div>
-        <div class="pagination">
+        
           
-        <a href="shop.php">&laquo;</a>
-        <a class="active" href="shop.php">1</a>
-        <a   href="afficherpagination2.php">2</a>
-        <a href="afficherpagination3.php">3</a>
-          <a href="afficherpagination2.php">&raquo;</a>
-        </div>       
+        
        
            <?php 
            
              
              $i=0;
-           foreach($pagination as $avion){ 
-               if ($avion['id']< 4  )
+           foreach($listeavion as $avion){ 
+               if ($avion['id']>=2  )
+               
                $i++; ?>
 
              
@@ -278,7 +274,7 @@ https://templatemo.com/tm-559-zay-shop
                   <div
                     class="card-img-overlay rounded-0 product-overlay d-flex align-items-center justify-content-center"
                   >
-                    <ul class="list-unstyled">
+                    <ul class="pagination">
                       <li>
                         <a
                           class="btn btn-success text-white"
@@ -348,7 +344,7 @@ https://templatemo.com/tm-559-zay-shop
 
 
           </div>
-          <div class="row">
+          <div class="pagination">
           
       
           
@@ -652,6 +648,9 @@ https://templatemo.com/tm-559-zay-shop
     <script src="assets/js/custom.js"></script>
     <!-- End Script -->
 
+
+
+    
     
   </body>
 </html>

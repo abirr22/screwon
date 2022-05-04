@@ -349,15 +349,7 @@
                                     <a style="margin-left:1100;"   value="Create PDF" id="btPrint" onclick="createPDF()" class="btn btn-danger">pdf </a>
                                 </tbody>
                             </table>
-                            
-                        </div>
-                    </div>
-                    
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <style>
+                            <style>
             .pagination a {
   color: black;
   float: left;
@@ -379,6 +371,14 @@
   <a href="afficherback2.php">3</a>
   <a href="afficherback2.php">&raquo;</a>
 </div>
+                        </div>
+                    </div>
+                    
+                        </div>
+                    </div>
+                </div>
+            </div>
+
             <!-- ============================================================== -->
             <!-- footer -->
             <!-- ============================================================== -->
