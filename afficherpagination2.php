@@ -247,26 +247,24 @@ https://templatemo.com/tm-559-zay-shop
                             </select>
                         </div>
                     </div> -->
-        </div>
-
-
-
+          </div>
+        
+          
+        
+       
           <div class="pagination">
           
-      
-          <a href="shop.php">&laquo;</a>
-        <a class="active" href="shop.php">1</a>
-        <a   href="afficherpagination2.php">2</a>
-        <a href="afficherpagination3.php">3</a>
-          <a href="afficherpagination2.php">&raquo;</a>
-        </div>       
-       
-       
-                    
-                 <?php
+          
+          <?php 
+          $i=0;
+          foreach($pagination as $avion){ 
+              if ($avion['id']< 3)
+              $i++;
+
+              ?>
+
              
-                   foreach( $i=3; $i<6; $i++) { 
-?>
+             
             
             <div class="col-md-4">
               <div class="card mb-4 product-wap rounded-0">
@@ -278,7 +276,7 @@ https://templatemo.com/tm-559-zay-shop
                   <div
                     class="card-img-overlay rounded-0 product-overlay d-flex align-items-center justify-content-center"
                   >
-                    <ul class="list-unstyled">
+                    <ul class="btn btn-success text-white mt-2">
                       <li>
                         <a
                           class="btn btn-success text-white"
@@ -339,46 +337,44 @@ https://templatemo.com/tm-559-zay-shop
                   </ul>
                   <p class="text-center mb-0"><?php echo $avion['prix']; ?>DT</p>
                 </div>
-                
               </div>
-              <?php } ?>
             </div>
-           
+            <?php } ?>
+
+        
             
 
 
-        </div>
-
-
-
-          <div div="row">
-            <ul class="card-body">
-              <li class="page-item disabled">
-
+          </div>
+          <div class="pagination">
+          
+      
+          
+            <ul class="pagination pagination-lg justify-content-end">
+              <li class="page-item active ">
                 <a
-                  class="page-link  rounded-0 mr-3 shadow-sm border-top-0 border-left-0"
+                  class="page-link disable drounded-0 mr-3 shadow-sm border-top-0 border-left-0"
                   href="shop.php"
                   tabindex="-1"
                   >1</a
                 >
-
               </li>
-              <li class="card-body">
+              <li class="page-item ">
                 <a
-                  class="page-link active rounded-0 mr-3 shadow-sm border-top-0 border-left-0 text-dark"
+                  class="page-link active rounded-0 mr-3 shadow-sm border-top-0 border-left-0 "
                   href="afficherpagination2.php"
-                  
                   >2</a
                 >
               </li>
-              <li class="card-body">
+              <li class="page-item ">
                 <a
-                  class="page-link rounded-0 shadow-sm border-top-0 border-left-0 text-dark"
+                  class="page-link disable rounded-0 shadow-sm border-top-0 border-left-0 text-dark"
                   href="afficherpagination3.php"
                   >3</a
                 >
               </li>
             </ul>
+            
           </div>
         </div>
       </div>
@@ -655,6 +651,9 @@ https://templatemo.com/tm-559-zay-shop
     <script src="assets/js/custom.js"></script>
     <!-- End Script -->
 
+
+
+    
     
   </body>
 </html>

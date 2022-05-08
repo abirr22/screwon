@@ -335,18 +335,11 @@ https://templatemo.com/tm-559-zay-shop
 
         
 
-<div class="pagination">
-  <a href="afficherback.php">&laquo;</a>
-  <a class="active" href="afficherback.php">1</a>
-  <a   href="afficherback1.php">2</a>
-  <a href="afficherback2.php">3</a>
-  <a href="afficherback2.php">&raquo;</a>
-</div>
 
 
           </div>
           <div div="row">
-            <ul class="pagination pagination-lg justify-content-end">
+            <ul class="pagination">
               <li class="page-item disabled">
                 <a
                   class="page-link rounded-0 mr-3 shadow-sm border-top-0 border-left-0"
@@ -357,7 +350,7 @@ https://templatemo.com/tm-559-zay-shop
               </li>
               <li class="page-item">
                 <a
-                  class="page-link rounded-0 mr-3 shadow-sm border-top-0 border-left-0 text-dark"
+                  class="page-link rounded-0 mr-3 shadow-sm border-top-0 border-left-0 "
                   href="afficherpagination2.php"
                   >2</a
                 >

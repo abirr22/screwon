@@ -35,10 +35,6 @@ https://templatemo.com/tm-559-zay-shop
 
 
 
-
-
-
-
   <?php include 'avionC.php';
 	$avionC=new AvionC();
 	$listeavion=$avionC->afficherAvions(); ?>
@@ -220,6 +216,10 @@ https://templatemo.com/tm-559-zay-shop
               </ul>
             </li>
           </ul>
+          <form id="myInput" name="bouton" method="post" action="index.php" class="btn btn-secondary" >
+                             <p><input type="submit" name="bouton">telecharger
+                             </p>
+                               </form>
         </div>
 
         <div class="col-lg-9">
@@ -250,12 +250,9 @@ https://templatemo.com/tm-559-zay-shop
           </div>
         
           
-        
+        <?php
        
-           <?php 
-           
-             
-             $i=0;
+          $i=0;
            foreach($listeavion as $avion){ 
                if ($avion['id']>=2  )
                
@@ -274,7 +271,7 @@ https://templatemo.com/tm-559-zay-shop
                   <div
                     class="card-img-overlay rounded-0 product-overlay d-flex align-items-center justify-content-center"
                   >
-                    <ul class="pagination">
+                    <ul class="btn btn-success text-white mt-2">
                       <li>
                         <a
                           class="btn btn-success text-white"
@@ -339,6 +336,7 @@ https://templatemo.com/tm-559-zay-shop
             </div>
             <?php } ?>
 
+            
         
 
 
@@ -654,3 +652,42 @@ https://templatemo.com/tm-559-zay-shop
     
   </body>
 </html>
+<?php
+if (isset($_POST['submit']))
+{
+$maxSize=50000;
+$validExt=array('.jpg','.jpeg','.gif','.png');
+
+if($_FILES['uploaded_file']['error']>0)
+{
+echo "une erreur est survenue lors du transfert";
+die;
+
+}
+
+$fileSize=$_FILES['uploaded_file']['size'];
+if($filesize > $maxSize)
+{
+  echo "le fichier est trop gros";
+  die;
+}
+
+$fileName= $_FILES['uploaded_file']['name'];
+$fileExt="." . strtolower(substr(strrchr($fileName, '.'),1));
+if(!in_array($fileExt, $validExt))
+{
+  echo "le fichier n'est pas une image";
+  die;
+
+}
+
+$tmpName= $_FILES['uploaded_file']['tmp_name'];
+$uniqueName= md5(uniqid(rand(), true));
+$fileName = "upload/" .$uniqueName . $fileExt;
+$resultat = move_uploaded_file($tmpName, $fileName);
+
+if($resultat)
+{
+  echo "transfert terminé";
+}
+}

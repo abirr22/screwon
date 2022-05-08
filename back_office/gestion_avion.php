@@ -294,7 +294,7 @@
                           </button>  
                        
                           <form id="myInput" name="bouton" method="post" action="afficher_email.php" class="btn btn-secondary" >
-                             <p><input type="submit" name="bouton"> </p>
+                             <p><input type="submit" name="bouton"> envoyer un email </p>
                                </form>
 
                         <form action="pdf.php" method="post">
@@ -589,7 +589,7 @@ function myFunction() {
 
 <script>
     function createPDF() {
-        var Table = document.getElementById('myTable').innerHTML;
+        var Table = document.getElementById('myTable').innerHTML; //jebna l'id mtee table b getelement par id 
 
         var style = "<style>";
         style = style + "table {width: 100%;font: 17px Calibri;}";
