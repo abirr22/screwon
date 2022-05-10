@@ -21,7 +21,7 @@
 <body>
 
 
-   <?php include '../avionC.php'; 
+   <?php include '../Controller/avionC.php'; 
 	$avionC=new AvionC();
 	
     $list1avion=$avionC->affichertrier();

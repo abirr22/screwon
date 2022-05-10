@@ -179,7 +179,7 @@
                                 </div>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link" href="#" data-toggle="collapse" aria-expanded="false" data-target="#submenu-2" aria-controls="submenu-2"><i class="fa fa-fw fa-rocket"></i>Vente</a>
+                                <a class="nav-link" href="#" data-toggle="collapse" aria-expanded="false" data-target="#submenu-2" aria-controls="submenu-2"><i class="fa fa-fw fa-rocket"></i>compte</a>
                                 
                             </li>
                             <li class="nav-item">
@@ -191,7 +191,7 @@
                                 
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link" href="#" data-toggle="collapse" aria-expanded="false" data-target="#submenu-5" aria-controls="submenu-5"><i class="fas fa-fw fa-table"></i>Evenements</a>
+                                <a class="nav-link" href="" data-toggle="collapse" aria-expanded="false" data-target="#submenu-5" aria-controls="submenu-5"><i class="fas fa-fw fa-table"></i>Evenements</a>
                                 
                             </li>
                             <li class="nav-item ">
@@ -256,7 +256,7 @@
                                 </div>
                                 <div class="form-group">
                                     <label>img1</label>
-                                    <input type="text" name="img1"  class="form-control" id="input-img1">
+                                    <input type="file" name="img1"  class="form-control" id="input-img1">
                                 </div>
                                 <div class="form-group">
                                     <label>img2</label>
@@ -289,7 +289,7 @@
 
   
                     <div class="card">
-                        <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModa2">
+                        <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
                            Ajouter Avion
                           </button>  
                        
@@ -297,7 +297,7 @@
                              <p><input type="submit" name="bouton"> envoyer un email </p>
                                </form>
 
-                        <form action="pdf.php" method="post">
+                        
                          
                      <div class="card-body">
                             <table id="myTable">  <!-- .. lezem nhot nafes id mtee tableau bch yaarf li howa yekhdem al tableau adheka . -->.
@@ -496,7 +496,7 @@ $( document ).ready(function() {  //fonction trecuperi valeur fi west champs id 
 
 </script>
   <!-- ... un deuxieme form lel modifier  -->.
-<div class="modal fade" id="exampleModal1" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+<div class="modal fade" id="exampleModal1" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel1" aria-hidden="true">
                         <div class="modal-dialog" role="document">
                           <div class="modal-content">
                             <div class="modal-header">

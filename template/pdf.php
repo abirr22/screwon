@@ -1,6 +1,6 @@
 
 
-<?php include '../avionC.php'; 
+<?php include '../Controller/avionC.php'; 
 	$avionC=new AvionC();
 	$listeavion=$avionC->afficherAvions(); ?>
 
