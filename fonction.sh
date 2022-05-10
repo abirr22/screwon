@@ -97,7 +97,7 @@
                 --field="author and version":btn "bash -c afficherAuteur"
 
               )
-     ########fonction ouvre fenetre yad
+     ########fonction qui ouvre fenetre yad
 
        interface_graphique()
 
@@ -125,7 +125,7 @@
                         echo "4) Lancer la fonction afficherListePro()"
                         echo "5) Lancer la fonction afficherMsgSurveillance()"
                         echo "6) Lancer la fonction afficherHelp()"
-                        echo "7) Lancer la fonction afficherGraph()"
+                        echo "7) Lancer la fonction interface_graphique()"
                         echo "8) Lancer la fonction afficherAuteur()"
                         echo "9) QUitter"
                  read -p "donner un choix:" choix
@@ -143,7 +143,7 @@
                 ;;
                 6) afficherHelp $@
                 ;;
-                7) afficherGraph $@
+                7) interface_graphique $@
                  ;;
                 8) afficherAuteur $@
                  ;;
