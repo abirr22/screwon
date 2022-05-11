@@ -23,13 +23,7 @@
     <!-- Load fonts style after rendering the layout styles -->
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@100;200;300;400;500;700;900&display=swap">
     <link rel="stylesheet" href="assets/css/fontawesome.min.css">
-<!--
-    
-TemplateMo 559 Zay Shop
 
-https://templatemo.com/tm-559-zay-shop
-
--->
 </head>
 
 <body>
@@ -119,18 +113,7 @@ https://templatemo.com/tm-559-zay-shop
         </div>
     </nav>
     <!-- Close Header -->
-     <?php
-  require_once '../config.php';
-$config=config::getConnexion();
 
-$evenement= $config->prepare("SELECT * FROM evenement ");
-
-
-if (isset($_GET['q']) && !empty($_GET['q'])) {
-    $recherche = htmlspecialchars($_GET['q']);
-    $evenement = $config->prepare("SELECT * FROM evenement WHERE nomEvenement LIKE '%".$recherche."%'");
-    }
-  ?> 
     <!-- Modal -->
     <div class="modal fade bg-white" id="templatemo_search" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
         <div class="modal-dialog modal-lg" role="document">
@@ -151,22 +134,15 @@ if (isset($_GET['q']) && !empty($_GET['q'])) {
     </div>
  
 
-
-
     <!-- Start Content -->
     <div class="container py-5">
         <div class="row">
-
-            
-
             <div class="col-lg-9">
                 <div class="row">
-                  
                     <div class="col-md-6 pb-4">
                         <div class="d-flex">
                             <select class="form-control">
                                 <option>tous les événements</option>
-                                <option>plus récents</option>
                             </select>
                         </div>
                     </div>
@@ -182,7 +158,7 @@ $config=config::getConnexion();
 if (isset($_POST["submit"])) {
     $str = $_POST["search"];
 
-    $sth = $config->prepare("SELECT * FROM evenement limit $start_from ,$num_per_page WHERE nomEvenement = '$str'");
+    $sth = $config->prepare("SELECT * FROM evenement  WHERE nomEvenement = '$str'");
 
     $sth->setFetchMode(PDO:: FETCH_OBJ);
     $sth -> execute();
@@ -240,6 +216,7 @@ if (isset($_POST["submit"])) {
 
                     $i=0;
                         foreach ($Evenements as $Evenement) {
+                            if ($Evenement['idEvenement'] <3) {
                          $i++;
 
                 ?>
@@ -293,31 +270,27 @@ if (isset($_POST["submit"])) {
                     </div>
                     <?php 
     }
+}
 
     ?>
 
-                          
-                   
-                    
+                                
                 </div>
                 <br>
-<section>
-<a href="<?=$data['prev_page']?>"><input type="button" class="s-12 submit-form button background-primary " style="width: 150px;" value="Prev"></a>
-<a href="<?=$data['next_page']?>"><input type="button" class="s-12 submit-form button background-primary " style="width: 150px; float: right;" value="Next"></a>
-</section>
-              <!--  <div div="row">
+
+                <div div="row">
                     <ul class="pagination pagination-lg justify-content-end">
                         <li class="page-item disabled">
-                            <a class="page-link active rounded-0 mr-3 shadow-sm border-top-0 border-left-0" href="#" tabindex="-1">1</a>
+                            <a class="page-link active rounded-0 mr-3 shadow-sm border-top-0 border-left-0" href="afficherEvenement1.php" tabindex="-1">1</a>
                         </li>
                         <li class="page-item">
-                            <a class="page-link rounded-0 mr-3 shadow-sm border-top-0 border-left-0 text-dark" href="#">2</a>
+                            <a class="page-link rounded-0 mr-3 shadow-sm border-top-0 border-left-0 text-dark" href="afficherEvenement2.php">2</a>
                         </li>
                         <li class="page-item">
-                            <a class="page-link rounded-0 shadow-sm border-top-0 border-left-0 text-dark" href="#">3</a>
+                            <a class="page-link rounded-0 shadow-sm border-top-0 border-left-0 text-dark" href="afficherEvenement3.php">3</a>
                         </li>
                     </ul>
-                </div> -->
+                </div> 
             </div>
 
         </div>
@@ -331,35 +304,20 @@ if (isset($_POST["submit"])) {
                 
                 <div class="col-lg-9 m-auto tempaltemo-carousel">
                     <div class="row d-flex flex-row">
-                        <!--Controls-->
-                        <div class="col-1 align-self-center">
-                            <a class="h1" href="#multi-item-example" role="button" data-bs-slide="prev">
-                                <i class="text-light fas fa-chevron-left"></i>
-                            </a>
-                        </div>
-                        <!--End Controls-->
+                       
 
-                        <!--Carousel Wrapper-->
-                        <div class="col">
-                            <div class="carousel slide carousel-multi-item pt-2 pt-md-0" id="multi-item-example" data-bs-ride="carousel">
-                               
-                            </div>
-                        </div>
-                        <!--End Carousel Wrapper-->
+                    
 
-                        <!--Controls-->
-                        <div class="col-1 align-self-center">
-                            <a class="h1" href="#multi-item-example" role="button" data-bs-slide="next">
-                                <i class="text-light fas fa-chevron-right"></i>
-                            </a>
-                        </div>
-                        <!--End Controls-->
+                      
                     </div>
                 </div>
             </div>
         </div>
     </section>
     <!--End Brands-->
+
+
+
 
 
     <!-- Start Footer -->

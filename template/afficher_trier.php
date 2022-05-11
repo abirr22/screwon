@@ -181,8 +181,29 @@
                                 
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link" href="#" data-toggle="collapse" aria-expanded="false" data-target="#submenu-5" aria-controls="submenu-5"><i class="fas fa-fw fa-table"></i>Evenements</a>
-                                
+                                <a class="nav-link active" href="evenement.html" data-toggle="collapse" aria-expanded="false" data-target="#submenu-5" aria-controls="submenu-5"><i class="fas fa-fw fa-table"></i>Evenements</a>
+                                <div id="submenu-5" class="collapse submenu" style="">
+                                    <ul class="nav flex-column">
+                                        <li class="nav-item">
+                                            <a class="nav-link" href="afficherListeEvenements.php" aria-expanded="false" data-target="#submenu-5-1" aria-controls="submenu-5-1"><i class="fas fa-fw fa-table"></i>Gérer les événements</a>
+                                        </li>   
+                                    </ul>
+                                    <ul class="nav flex-column">
+                                        <li class="nav-item">
+                                            <a class="nav-link" href="afficherListeParticipants.php" aria-expanded="false" data-target="#submenu-5-2" aria-controls="submenu-5-2"><i class="fas fa-fw fa-table"></i>Gérer les participants</a>
+                                        </li>   
+                                    </ul>
+                                    <ul class="nav flex-column">
+                                        <li class="nav-item">
+                                            <a class="nav-link" href="envoyerMails.php"  aria-expanded="false" data-target="#submenu-5-3" aria-controls="submenu-5-3"><i class="fas fa-fw fa-table"></i>Envoyer e_mail</a>
+                                        </li>   
+                                    </ul>
+                                    <ul class="nav flex-column">
+                                        <li class="nav-item">
+                                            <a class="nav-link" href="chart.php"  aria-expanded="false" data-target="#submenu-5-4" aria-controls="submenu-5-4"><i class="fas fa-fw fa-table"></i>Taux de participation</a>
+                                        </li>   
+                                    </ul>
+                                </div>
                             </li>
                             <li class="nav-item ">
                                 <a class="nav-link" href="#" data-toggle="collapse" aria-expanded="false" data-target="#submenu-4" aria-controls="submenu-4"><i class="fab fa-fw fa-wpforms"></i>Forum</a>

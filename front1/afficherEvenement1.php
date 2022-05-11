@@ -1,17 +1,10 @@
 <?php
-include_once '../Controller/EvenementC.php';
-include_once '../Controller/ParticipantC.php';
-include_once '../Model/Evenement.php';
+	include '../Controller/EvenementC.php';
+	$EvenementC=new EvenementC();
+	$Evenements=$EvenementC->afficherEvenements(); 
 
+?>
 
-  $ParticipantC=new ParticipantC();
-  
-  $listeParticipants=$ParticipantC->afficheridev($_GET['idEvenement']); 
-
-	
-
-  
-  ?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -40,6 +33,7 @@ https://templatemo.com/tm-559-zay-shop
 </head>
 
 <body>
+ 
 
     <!-- Start Top Nav -->
     <nav class="navbar navbar-expand-lg bg-dark navbar-light d-none d-lg-block" id="templatemo_nav_top">
@@ -49,10 +43,10 @@ https://templatemo.com/tm-559-zay-shop
                     <i class="fa fa-envelope mx-2"></i>
                     <a class="navbar-sm-brand text-light text-decoration-none" href="mailto:info@company.com">Tayarni@gmail.com</a>
                     <i class="fa fa-phone mx-2"></i>
-                    <a class="navbar-sm-brand text-light text-decoration-none" href="tel:010-020-0340">50454935</a>
+                    <a class="navbar-sm-brand text-light text-decoration-none" href="tel:50-454-935">50454935</a>
                 </div>
                 <div>
-                    <a class="text-light" href="https://fb.com/templatemo" target="_blank" rel="sponsored"><i class="fab fa-facebook-f fa-sm fa-fw me-2"></i></a>
+                    <a class="text-light" href="https://facebook.com/" target="_blank" rel="sponsored"><i class="fab fa-facebook-f fa-sm fa-fw me-2"></i></a>
                     <a class="text-light" href="https://www.instagram.com/" target="_blank"><i class="fab fa-instagram fa-sm fa-fw me-2"></i></a>
                     <a class="text-light" href="https://twitter.com/" target="_blank"><i class="fab fa-twitter fa-sm fa-fw me-2"></i></a>
                     <a class="text-light" href="https://www.linkedin.com/" target="_blank"><i class="fab fa-linkedin fa-sm fa-fw"></i></a>
@@ -66,6 +60,7 @@ https://templatemo.com/tm-559-zay-shop
     <!-- Header -->
     <nav class="navbar navbar-expand-lg navbar-light shadow">
         <div class="container d-flex justify-content-between align-items-center">
+            <img class ="logo" src="./assets/img/logo.gif" alt="">
 
             <a class="navbar-brand text-success logo h1 align-self-center" href="index.html">
                 Tayarni
@@ -88,7 +83,7 @@ https://templatemo.com/tm-559-zay-shop
                             <a class="nav-link" href="shop.html">Boutique</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="contact.html">Commandes</a>
+                            <a class="nav-link" href="contact.html">Equipement</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" href="forum.html">forum</a>
@@ -107,7 +102,7 @@ https://templatemo.com/tm-559-zay-shop
                             </div>
                         </div>
                     </div>
-                    <a class="nav-icon d-none d-lg-inline" href="#" data-bs-toggle="modal" data-bs-target="#templatemo_search">
+                    <a class="nav-icon d-none d-lg-inline" href="recherche.php" data-bs-toggle="modal" data-bs-target="#templatemo_search">
                         <i class="fa fa-fw fa-search text-dark mr-2"></i>
                     </a>
                     <a class="nav-icon position-relative text-decoration-none" href="#">
@@ -124,7 +119,18 @@ https://templatemo.com/tm-559-zay-shop
         </div>
     </nav>
     <!-- Close Header -->
+     <?php
+  require_once '../config.php';
+$config=config::getConnexion();
 
+$evenement= $config->prepare("SELECT * FROM evenement ");
+
+
+if (isset($_GET['q']) && !empty($_GET['q'])) {
+    $recherche = htmlspecialchars($_GET['q']);
+    $evenement = $config->prepare("SELECT * FROM evenement WHERE nomEvenement LIKE '%".$recherche."%'");
+    }
+  ?> 
     <!-- Modal -->
     <div class="modal fade bg-white" id="templatemo_search" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
         <div class="modal-dialog modal-lg" role="document">
@@ -133,207 +139,209 @@ https://templatemo.com/tm-559-zay-shop
             </div>
             <form action="" method="get" class="modal-content modal-body border-0 p-0">
                 <div class="input-group mb-2">
-                    <input type="text" class="form-control" id="inputModalSearch" name="q" placeholder="Search ...">
-                    <button type="submit" class="input-group-text bg-success text-light">
+                    <input type="text"  class="form-control" id="inputModalSearch" name="q" placeholder="Search evenement ..">
+                    <button type="submit" class="input-group-text bg-success text-light" href="recherche.php">
                         <i class="fa fa-fw fa-search text-white"></i>
                     </button>
                 </div>
             </form>
+
         </div>
+
     </div>
-  
-    <!-- Open Content -->
-    <?php
-    
-    require_once '../config.php';
+ 
 
-    $EvenementC=new EvenementC();
-	$Evenements=$EvenementC->afficherEvenements(); 
-  
-    $config=config::getConnexion();
-    
-    if (isset($_POST["submit"])) {
-        $str = $_POST["search"];
-        $sth = $config->prepare("SELECT * FROM evenement WHERE nomEvenement = '$str'");
-    
-        $sth->setFetchMode(PDO:: FETCH_OBJ);
-        $sth -> execute();
-    
-        if($Evenement = $sth->fetch())
-        {
-        
-           
-    
-    ?>
-    <section class="bg-light">
-        <div class="container pb-5">
-            <div class="row">
-                <div class="col-lg-5 mt-5">
-                    <div class="card mb-3">
-                    <img
-                class="card-img img-fluid"
-                src="assets/img/<?php echo $Evenement->img; ?>" alt="Product Image " />
-                    </div>
-                    
-                </div>
-                <!-- col end -->
-                <div class="col-lg-7 mt-5">
-                    <div class="card">
-                        <div class="card-body">
-                        <h1 class="h2"><?php echo $Evenement->nomEvenement; ?></h1>
-                            
-                            <p class="py-2">
-                            
-                                <span class="list-inline-item text-dark">20 Commentaires</span>
-                            </p>
 
-                            <h6>Description:</h6>
-                            <h1 class="h2"><?php echo $Evenement->descriptionEvenement; ?></h1>
-                            <ul class="list-inline">
-                                <li class="list-inline-item">
-                                    <h6>Date:</h6>
-                                </li>
-                                <li class="list-inline-item">
-                                    <p class="text-muted"><strong><?php echo $Evenement->dateEvenement; ?></strong></p>
-                                </li>
-                            </ul>
-                            dateEvenement
-                            <ul class="list-inline">
-                                <li class="list-inline-item">
-                                    <h6>Temps:</h6>
-                                </li>
-                                <li class="list-inline-item">
-                                    <p class="text-muted"><strong><?php echo $Evenement->temps; ?></strong></p>
-                                </li>
-                            </ul>
-                            <ul class="list-inline">
-                                <li class="list-inline-item">
-                                    <h6>Lieu:</h6>
-                                </li>
-                                <li class="list-inline-item">
-                                    <p class="text-muted"><strong>hôtel</strong></p>
-                                </li>
-                            </ul>
+
+    <!-- Start Content -->
+    <div class="container py-5">
+        <div class="row">
+
             
 
-                            <form action="" method="GET">
-                                <input type="hidden" name="product-title" value="Activewear">
-                                <div class="row pb-3">
-                                    <div class="col d-grid">
-                                       <!-- <button type="submit" class="btn btn-success btn-lg" name="submit" value="buy">Participer</button> -->
-                                        <button><a href="ajouterParticipant.php">Participer</a></button>
-                                    </div>
-                                    <div class="col d-grid">
-                                        <button type="submit" class="btn btn-success btn-lg" name="submit" value="addtocard">Intéréser</button>
-                                    </div>
-                                </div>
-                            </form>
-
+            <div class="col-lg-9">
+                <div class="row">
+                  
+                    <div class="col-md-6 pb-4">
+                        <div class="d-flex">
+                            <select class="form-control">
+                                <option>tous les événements</option>
+                                <option>plus récents</option>
+                            </select>
                         </div>
                     </div>
                 </div>
-            </div>
-        </div>
-    </section>
-    <?php }
+                <div class="row">
+                <center> <a style="margin-left:1100;" href="affichertrier.php"  class="button button1">trier</a></center>
+             
+                <?php
+    require_once '../config.php';
+$config=config::getConnexion();
+
+
+if (isset($_POST["submit"])) {
+    $str = $_POST["search"];
+
+    $sth = $config->prepare("SELECT * FROM evenement limit $start_from ,$num_per_page WHERE nomEvenement = '$str'");
+
+    $sth->setFetchMode(PDO:: FETCH_OBJ);
+    $sth -> execute();
+
+    if($Evenement = $sth->fetch())
+    {
+        ?>
+                    <div class="col-md-4">
+                        <div class="card mb-4 product-wap rounded-0">
+                            <div class="card rounded-0">
+                               <img
+                    class="card-img rounded-0 img-fluid"
+                    src="assets/img/<?php echo $Evenement->img; ?>"   />
+              
+                               <!--  <img class="card-img rounded-0 img-fluid" src="assets/img/tayara (2).png">    -->
+                                <div class="card-img-overlay rounded-0 product-overlay d-flex align-items-center justify-content-center">
+                                    <ul class="list-unstyled">
+                                        <li><a class="btn btn-success text-white" href="detail_evenement.php?idEvenement=<?php echo $Evenement->idEvenement; ?>">
+                                        <i class="far fa-heart"></i> </a> </li> 
+                                        <li><a class="btn btn-success text-white mt-2"  href="detail_evenement.php?idEvenement=<?php echo $Evenement->idEvenement; ?>">
+                                        <i class="far fa-eye"></i> </a></li>
+            
+                                    </ul>
+                                </div>
+                            </div>
+                            <div class="card-body">
+                                <a href="detail_evenement.php" style="color:rgb(61, 118, 192)" class="h3 text-decoration-none"><?php echo $Evenement->nomEvenement; ?> </a>
+                                <ul class="w-100 list-unstyled d-flex justify-content-between mb-0">
+                                    <li>Tayarni vous présente "le lancement" son premier événement...</li>
+                                    <li class="pt-2">
+                                        <span class="product-color-dot color-dot-red float-left rounded-circle ml-1"></span>
+                                        <span class="product-color-dot color-dot-blue float-left rounded-circle ml-1"></span>
+                                        <span class="product-color-dot color-dot-black float-left rounded-circle ml-1"></span>
+                                        <span class="product-color-dot color-dot-light float-left rounded-circle ml-1"></span>
+                                        <span class="product-color-dot color-dot-green float-left rounded-circle ml-1"></span>
+                                    </li>
+                                </ul>
+                    
+                            </div>
+                        </div>
+                    </div>
+                    <?php 
+    }
 
 
         else{
             echo "Name Does not exist";
         }
-    } 
-    $i=0;
-    foreach ($Evenements as $Evenement) {
-        if ($Evenement['idEvenement'] == 3) {
-            $i++;
+    }
+   
+    ?>
 
-   ?>
 
-<section class="bg-light">
-        <div class="container pb-5">
-            <div class="row">
-                <div class="col-lg-5 mt-5">
-                    <div class="card mb-3">
-                    <img
-                class="card-img img-fluid"
-                src="assets/img/<?php echo $Evenement['img']; ?>" alt="Product Image " />
-                    </div>
-                    
-                </div>
-                <!-- col end -->
-                <div class="col-lg-7 mt-5">
-                    <div class="card">
-                        <div class="card-body">
-                        <h1 class="h2"><?php echo $Evenement['nomEvenement']; ?></h1>
-                            
-                            <p class="py-2">
-                            
-                                <span class="list-inline-item text-dark">20 Commentaires</span>
-                            </p>
+<?php
 
-                            <h6>Description:</h6>
-                            <h1 class="h2"><?php echo $Evenement['descriptionEvenement']; ?></h1>
-                            <ul class="list-inline">
-                                <li class="list-inline-item">
-                                    <h6>Date:</h6>
-                                </li>
-                                <li class="list-inline-item">
-                                    <p class="text-muted"><strong><?php echo $Evenement['dateEvenement']; ?></strong></p>
-                                </li>
-                            </ul>
-                            dateEvenement
-                            <ul class="list-inline">
-                                <li class="list-inline-item">
-                                    <h6>Temps:</h6>
-                                </li>
-                                <li class="list-inline-item">
-                                    <p class="text-muted"><strong><?php echo $Evenement['temps']; ?></strong></p>
-                                </li>
-                            </ul>
-                            <ul class="list-inline">
-                                <li class="list-inline-item">
-                                    <h6>Lieu:</h6>
-                                </li>
-                                <li class="list-inline-item">
-                                    <p class="text-muted"><strong>hôtel</strong></p>
-                                </li>
-                            </ul>
+                    $i=0;
+                        foreach ($Evenements as $Evenement) {
+                            if ($Evenement['idEvenement'] <3) {
+                         $i++;
+
+                ?>
+                    <div class="col-md-4">
+                        <div class="card mb-4 product-wap rounded-0">
+                            <div class="card rounded-0">
+                               <img
+                    class="card-img rounded-0 img-fluid"
+                    src="assets/img/<?php echo $Evenement['img']; ?>"   />
+              
+                               <!--  <img class="card-img rounded-0 img-fluid" src="assets/img/tayara (2).png">    -->
+                                <div class="card-img-overlay rounded-0 product-overlay d-flex align-items-center justify-content-center">
+                                    <ul class="list-unstyled">
+                                        <li><a class="btn btn-success text-white" href="detail_evenement.php?idEvenement=<?php echo $Evenement['idEvenement']; ?>">
+                                        <i class="far fa-heart"></i> </a> </li> 
+                                        <li><a class="btn btn-success text-white mt-2"  href="detail_evenement.php?idEvenement=<?php echo $Evenement['idEvenement']; ?>">
+                                        <i class="far fa-eye"></i> </a></li>
             
-
-                            <form action="" method="GET">
-                                <input type="hidden" name="participer" value="Activewear">
-                                <div class="row pb-3">
-                                    <div class="col d-grid">
-                                       <!-- <button type="submit" class="btn btn-success btn-lg" name="submit" value="buy">Participer</button> -->
-                                        <button><a href="ajouterParticipant.php">Participer</a></button>
-                                    </div>
-                                    <div class="col d-grid">
-                                        <button type="submit" class="btn btn-success btn-lg" name="submit" value="addtocard">Intéréser</button>
-                                    </div>
+                                    </ul>
                                 </div>
-                            </form>
-
+                            </div>
+                            <div class="card-body">
+                             <center>   <a href="detail_evenement.php?idEvenement=<?php echo $Evenement['idEvenement']; ?>" style="color:rgb(61, 118, 192)" class="h3 text-decoration-none"><?php echo $Evenement['nomEvenement']; ?> </a> </center>
+                                <ul class="w-100 list-unstyled d-flex justify-content-between mb-0">
+                               <h1> <small> <small> <small> <small> <small> <small>  Date: <?php echo $Evenement['dateEvenement']; ?></small> </small></small></small></small> </small></h1>
+                               <h2>             </h2>
+                                    
+                                    <li class="pt-2">
+                                        <span class="product-color-dot color-dot-red float-left rounded-circle ml-1"></span>
+                                        <span class="product-color-dot color-dot-blue float-left rounded-circle ml-1"></span>
+                                        <span class="product-color-dot color-dot-black float-left rounded-circle ml-1"></span>
+                                        <span class="product-color-dot color-dot-light float-left rounded-circle ml-1"></span>
+                                        <span class="product-color-dot color-dot-green float-left rounded-circle ml-1"></span>
+                                    </li>
+                                </ul>
+                                <ul class="w-100 list-unstyled d-flex justify-content-between mb-1">
+                            
+                                <h3>  <small> <small> <small> <small> <small>  Prix: <?php echo $Evenement['prix']; ?> dt  </small></small></small></small> </small></h3>
+                                    <li class="pt-3">
+                                        <span class="product-color-dot color-dot-red float-left rounded-circle ml-1"></span>
+                                        <span class="product-color-dot color-dot-blue float-left rounded-circle ml-1"></span>
+                                        <span class="product-color-dot color-dot-black float-left rounded-circle ml-1"></span>
+                                        <span class="product-color-dot color-dot-light float-left rounded-circle ml-1"></span>
+                                        <span class="product-color-dot color-dot-green float-left rounded-circle ml-1"></span>
+                                    </li>
+                                </ul>
+                    
+                    
+                            </div>
                         </div>
+                    </div>
+                    <?php 
+    }
+}
+
+    ?>
+
+                                
+                </div>
+                <br>
+
+                <div div="row">
+                    <ul class="pagination pagination-lg justify-content-end">
+                        <li class="page-item disabled">
+                            <a class="page-link active rounded-0 mr-3 shadow-sm border-top-0 border-left-0" href="afficherEvenement1.php" tabindex="-1">1</a>
+                        </li>
+                        <li class="page-item">
+                            <a class="page-link rounded-0 mr-3 shadow-sm border-top-0 border-left-0 text-dark" href="afficherEvenement2.php">2</a>
+                        </li>
+                        <li class="page-item">
+                            <a class="page-link rounded-0 shadow-sm border-top-0 border-left-0 text-dark" href="afficherEvenement3.php">3</a>
+                        </li>
+                    </ul>
+                </div> 
+            </div>
+
+        </div>
+    </div>
+    <!-- End Content -->
+
+    <!-- Start Brands -->
+    <section class="bg-light py-5">
+        <div class="container my-4">
+            <div class="row text-center py-3">
+                
+                <div class="col-lg-9 m-auto tempaltemo-carousel">
+                    <div class="row d-flex flex-row">
+                       
+
+                    
+
+                      
                     </div>
                 </div>
             </div>
         </div>
     </section>
-   <?php } }?>
-    <!-- Close Content -->
-
-    <!-- Start Article -->
-    <section class="py-5">
-        <div class="container">
-           
-
-            <!--Start Carousel Wrapper-->
-            
+    <!--End Brands-->
 
 
-        </div>
-    </section>
-    <!-- End Article -->
+
 
 
     <!-- Start Footer -->
@@ -364,7 +372,7 @@ https://templatemo.com/tm-559-zay-shop
                     <ul class="list-unstyled text-light footer-link-list">
                         <li><a class="text-decoration-none" href="#">Jet privé </a></li>
                         <li><a class="text-decoration-none" href="#">Equipage</a></li>
-                        <li><a class="text-decoration-none" href="#">Evenement luxair</a></li>
+                        <li><a class="text-decoration-none" href="#">eve$Evenement luxair</a></li>
                         <li><a class="text-decoration-none" href="#">Le Boeing 737</a></li>
                         <li><a class="text-decoration-none" href="#">Le Boeing 777</a></li>
                     </ul>
@@ -430,42 +438,6 @@ https://templatemo.com/tm-559-zay-shop
     <script src="assets/js/templatemo.js"></script>
     <script src="assets/js/custom.js"></script>
     <!-- End Script -->
-
-    <!-- Start Slider Script -->
-    <script src="assets/js/slick.min.js"></script>
-    <script>
-        $('#carousel-related-product').slick({
-            infinite: true,
-            arrows: false,
-            slidesToShow: 4,
-            slidesToScroll: 3,
-            dots: true,
-            responsive: [{
-                    breakpoint: 1024,
-                    settings: {
-                        slidesToShow: 3,
-                        slidesToScroll: 3
-                    }
-                },
-                {
-                    breakpoint: 600,
-                    settings: {
-                        slidesToShow: 2,
-                        slidesToScroll: 3
-                    }
-                },
-                {
-                    breakpoint: 480,
-                    settings: {
-                        slidesToShow: 2,
-                        slidesToScroll: 3
-                    }
-                }
-            ]
-        });
-    </script>
-    <!-- End Slider Script -->
-
 </body>
 
 </html>

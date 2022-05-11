@@ -153,7 +153,7 @@
 <?php
 if(isset($_POST['submit'])){
     $to='siwar.boukhari@esprit.tn';
-    $sujet=$_POST['sujet'];
+    $sujet=$_POST['text'];
     $text=$_POST['text'];
     $header='From : "PrimFX.com"<support@primfx.com';
     mail($to,$sujet,$text,$header);
@@ -215,12 +215,12 @@ if(isset($_POST['submit'])){
                                     </ul>
                                     <ul class="nav flex-column">
                                         <li class="nav-item">
-                                            <a class="nav-link" href="envoyerMails.php" data-toggle="collapse" aria-expanded="false" data-target="#submenu-5-3" aria-controls="submenu-5-3"><i class="fas fa-fw fa-table"></i>Envoyer e_mail</a>
+                                            <a class="nav-link" href="envoyerMails.php"  aria-expanded="false" data-target="#submenu-5-3" aria-controls="submenu-5-3"><i class="fas fa-fw fa-table"></i>Envoyer e_mail</a>
                                         </li>   
                                     </ul>
                                     <ul class="nav flex-column">
                                         <li class="nav-item">
-                                            <a class="nav-link" href="evenement.php" data-toggle="collapse" aria-expanded="false" data-target="#submenu-5-4" aria-controls="submenu-5-4"><i class="fas fa-fw fa-table"></i>Taux de participation</a>
+                                            <a class="nav-link" href="chart.php"  aria-expanded="false" data-target="#submenu-5-4" aria-controls="submenu-5-4"><i class="fas fa-fw fa-table"></i>Taux de participation</a>
                                         </li>   
                                     </ul>
                                 </div>
