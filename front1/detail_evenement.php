@@ -307,9 +307,7 @@ https://templatemo.com/tm-559-zay-shop
                                        <!-- <button type="submit" class="btn btn-success btn-lg" name="submit" value="buy">Participer</button> -->
                                         <button><a href="ajouterParticipant.php">Participer</a></button>
                                     </div>
-                                    <div class="col d-grid">
-                                        <button type="submit" class="btn btn-success btn-lg" name="submit" value="addtocard">Intéréser</button>
-                                    </div>
+                                  
                                 </div>
                             </form>
 
