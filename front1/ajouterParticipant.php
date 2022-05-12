@@ -3,9 +3,15 @@
     include_once '../Controller/ParticipantC.php';
     include_once '../Controller/EvenementC.php';
   
-  
+    $error = "";
+
+    // create Evenement
+    $Participant = null;
+
+    // create an intance of the controller
+    $ParticipantC = new ParticipantC();
     
-    if (isset($_POST["nomParticipant"]) &&	
+    if ( isset($_POST["nomParticipant"]) &&	
     isset($_POST["Email"]) &&
     isset($_POST["numTel"]) && 
     isset($_POST["adresse"]) && 
@@ -25,10 +31,11 @@
          $_POST['numTel'],
          $_POST['adresse'],
          $_POST['genre']);
-        $ParticipantC = new ParticipantC();
-        $ParticipantC->ajouterParticipant($Participant);
+      //  $ParticipantC = new ParticipantC();
+        $ParticipantC->ajouterParticipant($Participant,$_GET['idEvenement']);
         header('Location:evenements.php');
-    }
+    }else
+    $error = "Missing information";
 }
 ?>
 
@@ -155,11 +162,6 @@
 
 
     <center><h1>                </h1></center>
-        <hr>
-        
-        <div id="error">
-          
-        </div>
         
         <form action="" method="POST">
             <table border="1" align="center">
@@ -175,7 +177,7 @@
                         <label for="Email">Email:
                         </label>
                     </td>
-                    <td><input type="text" name="Email" id="Email" ></td>
+                    <td><input type="mail" name="Email" id="Email" ></td>
                 </tr>
                 <tr>
                     <td>
@@ -216,6 +218,7 @@
                 </tr>
             </table>
         </form>
+        <center><h2>                </h2></center>
 
       <!-- Start Footer -->
     <footer class="bg-dark" id="tempaltemo_footer">

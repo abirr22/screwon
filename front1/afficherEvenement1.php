@@ -166,13 +166,12 @@ if (isset($_GET['q']) && !empty($_GET['q'])) {
                         <div class="d-flex">
                             <select class="form-control">
                                 <option>tous les événements</option>
-                                <option>plus récents</option>
                             </select>
                         </div>
                     </div>
                 </div>
                 <div class="row">
-                <center> <a style="margin-left:1100;" href="affichertrier.php"  class="button button1">trier</a></center>
+                <center> <a style="margin-left:2100;" href="affichertrier.php"  class="btn btn-primary">trier</a></center>
              
                 <?php
     require_once '../config.php';
